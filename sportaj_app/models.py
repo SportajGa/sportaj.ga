@@ -55,16 +55,17 @@ class SlikaKluba(models.Model):
         verbose_name_plural = "Slike"
 
     def save(self, *args, **kwargs):
-        instance = super(SlikaKluba, self)
+        instance = super(SlikaKluba, self).save(*args, **kwargs)
 
         image = Image.open(instance.slika.path).convert("RGB")
 
         path, ext = os.path.splitext(instance.slika.path)
-        instance.slika.path = path + ".webp"
+        newPath = path + ".webp"
 
-        image.save(instance.slika.path, "webp", lossless=False, quality=25)
+        image.save(newPath, "webp", lossless=False, quality=25)
 
-        instance.save(*args, **kwargs)
+        self.slika = newPath
+        super(SlikaKluba, self).save(*args, **kwargs)
         return instance
 
     def __str__(self):

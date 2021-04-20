@@ -25,6 +25,9 @@ django-taggit-labels = "*"
 django-colorfield = "*"
 django-faicon = "*"
 sentry-sdk = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.8"

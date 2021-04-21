@@ -18,8 +18,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.views.decorators.cache import cache_page
 from django.conf.urls.static import static
+from rest_framework import routers
 
 import sportaj_app.views
+
+router = routers.DefaultRouter()
 
 urlpatterns = [
                   path("", sportaj_app.views.HomeView.as_view(), name = "home"),
@@ -28,6 +31,7 @@ urlpatterns = [
                   path("klub/<slug>", cache_page(60 * 15)(sportaj_app.views.KlubView.as_view()), name = "klub"),
                   path("admin/", admin.site.urls),
                   path('faicon/', include('faicon.urls')),
+                  path('/v1', include(router.urls))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

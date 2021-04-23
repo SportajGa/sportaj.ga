@@ -1047,3 +1047,5 @@ FodyWeavers.xsd
 *.tlog
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,pycharm,pycharm+iml,pycharm+all,visualstudio,visualstudiocode,webstorm,web,node,react,typings,rust
+
+!*.config.js

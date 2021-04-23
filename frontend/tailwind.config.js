@@ -4,6 +4,9 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: require('daisyui/colors')
+		},
+		container: {
+			center: true
 		}
 	},
 	variants: {

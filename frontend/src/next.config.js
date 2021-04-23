@@ -7,6 +7,11 @@ module.exports = {
             }
         ];
     },
+    images: {
+        domains: [
+            'sportaj.ga'
+        ]
+    },
     future: {
         webpack5: true,
     },

@@ -16,9 +16,9 @@ const NavBar: React.FC = () => {
 			<Disclosure as="nav" className="mt-4 mx-4 rounded-lg shadow-xl bg-gray-400 text-white">
 				{({ open }) => (
 					<>
-						<div className="w-full mx-auto px-2 lg:px-6 xl:px-8">
+						<div className="w-full mx-auto px-2 md:px-6 xl:px-8">
 							<div className="relative flex items-center justify-between h-16">
-								<div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
+								<div className="absolute inset-y-0 left-0 flex items-center md:hidden">
 									<Disclosure.Button
 										className={`inline-flex items-center justify-center p-2 rounded-md ${linkStyle} focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}
 									>
@@ -30,11 +30,11 @@ const NavBar: React.FC = () => {
 										)}
 									</Disclosure.Button>
 								</div>
-								<div className="flex-1 flex items-center pl-4 lg:pl-0 lg:items-stretch justify-center lg:justify-start">
+								<div className="flex-1 flex items-center pl-4 md:pl-0 md:items-stretch justify-center md:justify-start">
 									<div className="flex-shrink-0 flex items-center">
 										<Link href="/">Sportaj.ga</Link>
 									</div>
-									<div className="hidden lg:block lg:ml-6">
+									<div className="hidden md:block md:ml-6">
 										<div className="flex space-x-4">
 											<NavBarItem href="/" className={`${navItemStyle}`} content="Domov" />
 											<NavBarItem href="/zemljevid" className={`${navItemStyle}`} content="Zemljevid" />
@@ -44,7 +44,7 @@ const NavBar: React.FC = () => {
 							</div>
 						</div>
 
-						<Disclosure.Panel className="lg:hidden">
+						<Disclosure.Panel className="md:hidden">
 							<div className="px-2 pt-2 pb-3 space-y-1 shadow-lg">
 								<NavBarItem href="/support" className={`${navItemMobileStyle}`} content="Support" />
 							</div>

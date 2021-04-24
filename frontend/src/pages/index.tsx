@@ -1,5 +1,7 @@
 import { faMapPin } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import React from 'react';
 
 export default function Home() {
@@ -35,6 +37,7 @@ export default function Home() {
 								postaviti na trde temelje za nadaljnji uspešen razvoj. Če smo želeli ta cilj doseci, pa smo moramo ustanoviti klub, ki
 								bo atlete in trenerje v novi sredini povezoval in jih vzpodbujal k nadaljnjemu razvoju.
 							</p>
+							<FullCalendar initialView="timeGridWeek" plugins={[timeGridPlugin]} />
 						</div>
 					</div>
 				</div>

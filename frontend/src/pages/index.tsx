@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import React from 'react';
+import GoogleMapReact from 'google-map-react';
 
 export default function Home() {
 	return (
@@ -21,6 +22,16 @@ export default function Home() {
 								</span>
 							</section>
 						</div>
+					</div>
+					<div className="h-96">
+						<GoogleMapReact
+							// These are placeholders
+							center={{
+								lat: 59.95,
+								lng: 30.33
+							}}
+							zoom={11}
+						></GoogleMapReact>
 					</div>
 				</div>
 				<div className="col-span-2">

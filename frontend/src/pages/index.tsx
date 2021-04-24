@@ -7,8 +7,8 @@ import React from 'react';
 export default function Home() {
 	return (
 		<div className="container">
-			<div className="grid grid-cols-3 gap-4">
-				<div className="content-center">
+			<div className="flex flex-wrap">
+				<div className="content-center w-2/6 hidden md:block">
 					<figure className="px-10 pt-10">
 						<img src="https://sportaj.ga/media/klub_logo/5_1.webp" className="rounded-xl m-auto" height="128" width="128" />
 					</figure>
@@ -28,13 +28,14 @@ export default function Home() {
 						></GoogleMapReact>
 					</div>
 				</div>
-				<div className="col-span-2">
+				<div className="w-full md:w-4/6">
 					<figure className="px-10 pt-10">
 						<img className="w-full h-auto rounded-md" src="https://sportaj.ga/media/header_slike/5_qfdjGtZ.webp" />
 					</figure>
 					<div className="card px-10">
 						<div className="card-body">
 							<span className="card-title text-center">AK Poljane</span>
+							<ClubAddress address="Kabajeva ulica 5, 2000 Maribor, Slovenija" className="md:hidden text-sm" />
 							<div className="flex flex-col py-4">
 								<section className="flex justify-between">
 									<p>1</p>
@@ -48,7 +49,7 @@ export default function Home() {
 								postaviti na trde temelje za nadaljnji uspešen razvoj. Če smo želeli ta cilj doseci, pa smo moramo ustanoviti klub, ki
 								bo atlete in trenerje v novi sredini povezoval in jih vzpodbujal k nadaljnjemu razvoju."
 							/>
-							<ClubCalendar />
+							<ClubCalendar className="hidden md:block" />
 						</div>
 					</div>
 				</div>

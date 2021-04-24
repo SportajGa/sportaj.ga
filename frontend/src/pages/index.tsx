@@ -1,9 +1,8 @@
-import { faMapPin } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FullCalendar from '@fullcalendar/react';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import React from 'react';
+import ClubAddress from 'components/Club/ClubAddress';
+import ClubCalendar from 'components/Club/ClubCalendar';
+import ClubDescription from 'components/Club/ClubDescription';
 import GoogleMapReact from 'google-map-react';
+import React from 'react';
 
 export default function Home() {
 	return (
@@ -15,12 +14,7 @@ export default function Home() {
 					</figure>
 					<div className="card">
 						<div className="card-body">
-							<section className="flex justify-center p-1">
-								<FontAwesomeIcon icon={faMapPin} />{' '}
-								<span id="address" className="pl-4">
-									Kabajeva ulica 5, 2000 Maribor, Slovenija
-								</span>
-							</section>
+							<ClubAddress address="Kabajeva ulica 5, 2000 Maribor, Slovenija" />
 						</div>
 					</div>
 					<div className="h-96">
@@ -47,16 +41,14 @@ export default function Home() {
 									<p>2</p>
 								</section>
 							</div>
-							<p className="text-justify">
-								Z veseljem in ponosom se ozrimo v kratko zgodovino obstoja našega kluba. Razmere v mariborski atletiki so bile tiste,
+							<ClubDescription
+								description="Z veseljem in ponosom se ozrimo v kratko zgodovino obstoja našega kluba. Razmere v mariborski atletiki so bile tiste,
 								ki so narekovali nastanek novega kluba. Ideja ozkega kroga trenerjev se je pričela uresničevati nekega poletnega
 								večera 18.avgusta leta 2000, ko se je devetnajst pobudnikov zbralo na ustanovnem sestanku in odločilo atletiko
 								postaviti na trde temelje za nadaljnji uspešen razvoj. Če smo želeli ta cilj doseci, pa smo moramo ustanoviti klub, ki
-								bo atlete in trenerje v novi sredini povezoval in jih vzpodbujal k nadaljnjemu razvoju.
-							</p>
-							<div className="pt-4">
-								<FullCalendar initialView="timeGridWeek" locale="sl" plugins={[timeGridPlugin]} />
-							</div>
+								bo atlete in trenerje v novi sredini povezoval in jih vzpodbujal k nadaljnjemu razvoju."
+							/>
+							<ClubCalendar />
 						</div>
 					</div>
 				</div>

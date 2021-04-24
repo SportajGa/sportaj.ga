@@ -30,6 +30,12 @@ export default function Home() {
 					<div className="card px-10">
 						<div className="card-body">
 							<span className="card-title text-center">AK Poljane</span>
+							<div className="flex flex-col py-4">
+								<section className="flex justify-between">
+									<p>1</p>
+									<p>2</p>
+								</section>
+							</div>
 							<p className="text-justify">
 								Z veseljem in ponosom se ozrimo v kratko zgodovino obstoja našega kluba. Razmere v mariborski atletiki so bile tiste,
 								ki so narekovali nastanek novega kluba. Ideja ozkega kroga trenerjev se je pričela uresničevati nekega poletnega
@@ -37,7 +43,9 @@ export default function Home() {
 								postaviti na trde temelje za nadaljnji uspešen razvoj. Če smo želeli ta cilj doseci, pa smo moramo ustanoviti klub, ki
 								bo atlete in trenerje v novi sredini povezoval in jih vzpodbujal k nadaljnjemu razvoju.
 							</p>
-							<FullCalendar initialView="timeGridWeek" plugins={[timeGridPlugin]} />
+							<div className="pt-4">
+								<FullCalendar initialView="timeGridWeek" locale="sl" plugins={[timeGridPlugin]} />
+							</div>
 						</div>
 					</div>
 				</div>

@@ -11,7 +11,7 @@ import 'styles/_App.css';
 import { SupabaseContextProvider } from 'use-supabase';
 
 // @ts-expect-error Stupidity
-const _supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+export const _supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	return (
@@ -19,7 +19,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 			<SupabaseContextProvider client={_supabase}>
 				<Auth.UserContextProvider supabaseClient={_supabase}>
 					<NavBar />
-					<div className="py-8" />
+					<div className="py-12" />
 					<Component {...pageProps} />
 				</Auth.UserContextProvider>
 			</SupabaseContextProvider>

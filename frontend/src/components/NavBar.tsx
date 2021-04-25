@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
 
 						<Disclosure.Panel className="md:hidden">
 							<div className="px-2 pt-2 pb-3 space-y-1 shadow-lg">
-								<NavBarItem href="/support" className={`${navItemMobileStyle}`} content="Support" />
+								<NavBarItem href="/zemljevid" className={`${navItemMobileStyle}`} content="Zemljevid" />
 							</div>
 						</Disclosure.Panel>
 					</>

@@ -1050,4 +1050,4 @@ FodyWeavers.xsd
 
 !*.config.js
 !*.css
-!.storybook/
+!.storybook/*

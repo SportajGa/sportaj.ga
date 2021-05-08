@@ -1,3 +1,5 @@
+const nextTranslate = require('next-translate')
+
 // @ts-ignore
 const withTM = require('next-transpile-modules')([
     // Need to specify all @fullcalendar modules separately
@@ -29,4 +31,5 @@ const config = {
     },
 }
 
-module.exports = withTM(config);
+// @ts-ignore No types
+module.exports = withTM(nextTranslate(config));

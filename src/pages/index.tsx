@@ -1,10 +1,13 @@
 import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
+import { generateSitemap } from 'core/sitemap';
 import GoogleMapReact from 'google-map-react';
+import type { GetStaticProps, NextPage } from 'next';
+import path from 'path';
 import React from 'react';
 
-export default function Home() {
+const Index: NextPage = () => {
 	return (
 		<div className="container">
 			<div className="flex flex-wrap">
@@ -56,4 +59,14 @@ export default function Home() {
 			</div>
 		</div>
 	);
-}
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+	const directory = path.join(process.cwd(), 'src');
+
+	await generateSitemap(directory);
+
+	return { props: {} };
+};
+
+export default Index;

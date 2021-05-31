@@ -17,7 +17,7 @@ const KlubPage: NextPage<KlubProps> = ({ name }) => {
 };
 
 const CLUB_SLUGS = gql`
-	{
+	query AllClubs {
 		allClubsBySlug {
 			slug
 		}

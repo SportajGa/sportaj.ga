@@ -1,18 +1,78 @@
 import { gql } from '@apollo/client';
 import type { Club } from '@sportajga/api';
+import ClubAddress from 'components/Club/ClubAddress';
+import ClubCalendar from 'components/Club/ClubCalendar';
+import ClubDescription from 'components/Club/ClubDescription';
 import { client, GraphQLResponse } from 'core/apiClient';
+import GoogleMapReact from 'google-map-react';
 import type { GetStaticProps, NextPage } from 'next';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export interface KlubProps {
 	name: string;
+	description: string | null;
+	location: string | null;
+	locationFriendly: string | null;
 }
 
-const KlubPage: NextPage<KlubProps> = ({ name }) => {
+const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly }) => {
+	const [latLon, setLatLon] = useState<{ lat: number; lon: number }>();
+
+	useEffect(() => {
+		if (location) {
+			const [lat, lon] = location.split(',').map(Number);
+			setLatLon({ lat, lon });
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
-		<>
-			<h1>{name}</h1>
-		</>
+		<div className="container">
+			<div className="flex flex-wrap">
+				<div className="content-center w-2/6 hidden md:block">
+					<figure className="px-10 pt-10">
+						<img src="https://sportaj.ga/media/klub_logo/5_1.webp" className="rounded-xl m-auto" height="128" width="128" />
+					</figure>
+					{locationFriendly && (
+						<div className="card">
+							<div className="card-body">
+								<ClubAddress address={locationFriendly} />
+							</div>
+						</div>
+					)}
+					{location && latLon && (
+						<div className="h-96">
+							<GoogleMapReact
+								center={{
+									lat: latLon!.lat,
+									lng: latLon!.lon
+								}}
+								zoom={11}
+							></GoogleMapReact>
+						</div>
+					)}
+				</div>
+				<div className="w-full md:w-4/6">
+					<figure className="px-10 pt-10">
+						<img className="w-full h-auto rounded-md" src="https://sportaj.ga/media/header_slike/5_qfdjGtZ.webp" />
+					</figure>
+					<div className="card px-10">
+						<div className="card-body">
+							<span className="card-title text-center">{name}</span>
+							{locationFriendly && <ClubAddress address={locationFriendly} className="md:hidden text-sm" />}
+							<div className="flex flex-col py-4">
+								<section className="flex justify-between">
+									<p>1</p>
+									<p>2</p>
+								</section>
+							</div>
+							{description && <ClubDescription description={description} />}
+							<ClubCalendar className="hidden md:block" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 };
 
@@ -28,17 +88,25 @@ const GET_CLUB = gql`
 	query Club($slug: String!) {
 		club(slug: $slug) {
 			name
+			description
+			location
+			locationFriendly
 		}
 	}
 `;
 
 export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async ({ params }) => {
 	const { data } = await client.query<GraphQLResponse<'club'>>({ query: GET_CLUB, variables: { slug: params?.slug } });
+	const club = data.club as Pick<Club, 'name' | 'description' | 'location' | 'locationFriendly'>;
 
 	return {
 		props: {
-			name: (data.club as Club).name
-		}
+			name: club.name,
+			description: club.description ?? null,
+			location: club.location ?? null,
+			locationFriendly: club.locationFriendly ?? null
+		},
+		revalidate: 120
 	};
 };
 

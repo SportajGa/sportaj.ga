@@ -29,7 +29,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 	return (
 		<div className="container">
 			<div className="flex flex-wrap">
-				<div className="content-center w-2/6 hidden md:block">
+				<div className="content-center shadow-lg w-2/6 hidden md:pr-2 md:block">
 					<figure className="px-10 pt-10">
 						<img src="https://sportaj.ga/media/klub_logo/5_1.webp" className="rounded-xl m-auto" height="128" width="128" />
 					</figure>
@@ -52,7 +52,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 						</div>
 					)}
 				</div>
-				<div className="w-full md:w-4/6">
+				<div className="w-full shadow-lg md:pl-2 md:w-4/6">
 					<figure className="px-10 pt-10">
 						<img className="w-full h-auto rounded-md" src="https://sportaj.ga/media/header_slike/5_qfdjGtZ.webp" />
 					</figure>

@@ -6,6 +6,7 @@ import ClubDescription from 'components/Club/ClubDescription';
 import { client, GraphQLResponse } from 'core/apiClient';
 import GoogleMapReact from 'google-map-react';
 import type { GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
 import React, { useState, useEffect } from 'react';
 
 export interface KlubProps {
@@ -16,6 +17,7 @@ export interface KlubProps {
 }
 
 const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly }) => {
+	const router = useRouter();
 	const [latLon, setLatLon] = useState<{ lat: number; lon: number }>();
 
 	useEffect(() => {
@@ -25,6 +27,10 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	if (router.isFallback) {
+		return <div>Loading</div>;
+	}
 
 	return (
 		<div className="container">
@@ -43,6 +49,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 					{location && latLon && (
 						<div className="h-96">
 							<GoogleMapReact
+								yesIWantToUseGoogleMapApiInternals={true}
 								center={{
 									lat: latLon!.lat,
 									lng: latLon!.lon

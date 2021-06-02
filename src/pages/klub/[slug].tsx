@@ -4,6 +4,7 @@ import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
 import { client, GraphQLResponse } from 'core/apiClient';
+import { allClubSlugs } from 'core/clubs';
 import GoogleMapReact from 'google-map-react';
 import type { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
@@ -83,14 +84,6 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 	);
 };
 
-const CLUB_SLUGS = gql`
-	query AllClubs {
-		allClubsBySlug {
-			slug
-		}
-	}
-`;
-
 const GET_CLUB = gql`
 	query Club($slug: String!) {
 		club(slug: $slug) {
@@ -118,10 +111,10 @@ export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async
 };
 
 export async function getStaticPaths() {
-	const { data } = await client.query<GraphQLResponse<'allClubsBySlug'>>({ query: CLUB_SLUGS });
+	const slugs = await allClubSlugs();
 
 	return {
-		paths: data.allClubsBySlug.map(({ slug }) => ({ params: { slug } })),
+		paths: slugs.map((slug) => ({ params: { slug } })),
 		fallback: true
 	};
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ClubDescriptionProps {
-	description?: string;
+	description: string | null;
 }
 
 const ClubDescription: React.FC<ClubDescriptionProps> = ({ description }) => {

@@ -74,7 +74,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 									<p>2</p>
 								</section>
 							</div>
-							{description && <ClubDescription description={description} />}
+							<ClubDescription description={description} />
 							<ClubCalendar className="hidden md:block" />
 						</div>
 					</div>

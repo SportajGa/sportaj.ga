@@ -3,6 +3,7 @@ import type { Club } from '@sportajga/api';
 import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
+import Loading from 'components/Loading';
 import { client, GraphQLResponse } from 'core/apiClient';
 import { allClubSlugs } from 'core/clubs';
 import GoogleMapReact from 'google-map-react';
@@ -30,7 +31,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 	}, []);
 
 	if (router.isFallback) {
-		return <div>Loading</div>;
+		return <Loading />;
 	}
 
 	return (

@@ -115,7 +115,7 @@ export async function getStaticPaths() {
 	const slugs = await allClubSlugs();
 
 	return {
-		paths: slugs.map((slug) => ({ params: { slug } })),
+		paths: slugs.map((slug) => ({ params: { slug }, locale: 'sl' })),
 		fallback: true
 	};
 }

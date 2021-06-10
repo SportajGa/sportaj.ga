@@ -1,12 +1,14 @@
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Disclosure } from '@headlessui/react';
+import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React from 'react';
 import NavBarItem from './NavBarItem';
 
 // Based on https://tailwindui.com/components/application-ui/navigation/navbars
 const NavBar: React.FC = () => {
+	const { t } = useTranslation('common');
 	const linkStyle = '';
 	const navItemStyle = `px-3 py-2 rounded-md text-sm font-medium select-none cursor-pointer ${linkStyle}`;
 	const navItemMobileStyle = `block px-3 py-2 rounded-md text-base font-medium select-none cursor-pointer ${linkStyle}`;
@@ -36,8 +38,8 @@ const NavBar: React.FC = () => {
 									</div>
 									<div className="hidden md:block md:ml-6">
 										<div className="flex space-x-4">
-											<NavBarItem href="/" className={`${navItemStyle}`} content="Domov" />
-											<NavBarItem href="/zemljevid" className={`${navItemStyle}`} content="Zemljevid" />
+											<NavBarItem href="/" className={`${navItemStyle}`} content={t('home')} />
+											<NavBarItem href="/zemljevid" className={`${navItemStyle}`} content={t('map')} />
 										</div>
 									</div>
 								</div>
@@ -46,7 +48,7 @@ const NavBar: React.FC = () => {
 
 						<Disclosure.Panel className="md:hidden">
 							<div className="px-2 pt-2 pb-3 space-y-1 shadow-lg">
-								<NavBarItem href="/zemljevid" className={`${navItemMobileStyle}`} content="Zemljevid" />
+								<NavBarItem href="/zemljevid" className={`${navItemMobileStyle}`} content={t('map')} />
 							</div>
 						</Disclosure.Panel>
 					</>

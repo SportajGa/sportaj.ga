@@ -62,7 +62,7 @@
     "babel-plugin-transform-import-ignore": "^1.1.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "daisyui": "^0.20.1",
-    "eslint": "^7.22.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",

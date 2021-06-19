@@ -5,7 +5,10 @@ class MyDocument extends Document {
 	public render() {
 		return (
 			<Html lang="sl" prefix="og: https://ogp.me/ns#">
-				<Head />
+				<Head>
+					<link rel="preconnect" href="https://fonts.gstatic.com" />
+					<script defer data-domain="beta.sportaj.ga" src="https://plausible.io/js/plausible.js"></script>
+				</Head>
 				<body>
 					<Main />
 					<NextScript />

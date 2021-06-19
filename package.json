@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "npm run pages:npmrc",
     "dev": "next dev src -p 3000",
     "build": "next build src",
+    "export": "next export src",
     "clean": "rimraf src/.next src/public/sw.js src/public/workbox* src/public/sitemap.xml",
     "start": "next start src",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "pages:npmrc": "node is-pages && mv .npmrc.pages .npmrc || echo \"Not Pages\"",
+    "pages:build": "npm run build && npm run export"
   },
   "dependencies": {
     "@apollo/client": "^3.3.19",

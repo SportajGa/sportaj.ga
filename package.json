@@ -61,7 +61,7 @@
     "autoprefixer": "9",
     "babel-plugin-transform-import-ignore": "^1.1.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
-    "daisyui": "^0.20.1",
+    "daisyui": "^1.6.0",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",

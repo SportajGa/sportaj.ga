@@ -5,6 +5,9 @@ WORKDIR /base
 COPY package*.json ./
 COPY yarn.lock ./
 
+ARG SPORTAJGA_PACKAGES
+COPY .npmrc.pages ./.npmrc
+
 RUN yarn
 
 COPY . .

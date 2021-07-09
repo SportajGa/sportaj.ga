@@ -6,9 +6,12 @@ COPY package*.json ./
 COPY yarn.lock ./
 
 ARG SPORTAJGA_PACKAGES
-COPY .npmrc.pages ./.npmrc
+COPY .npmrc ./.npmrc
+RUN echo "//npm.pkg.github.com/:_authToken=$SPORTAJGA_PACKAGES" >> .npmrc
 
 RUN yarn
+
+RUN rm ./.npmrc
 
 COPY . .
 
@@ -31,7 +34,13 @@ COPY --from=build /build/i18n.json ./
 COPY --from=build /build/src/.next ./.next
 COPY --from=build /build/src/public ./public
 
+ARG SPORTAJGA_PACKAGES
+COPY .npmrc ./.npmrc
+RUN echo "//npm.pkg.github.com/:_authToken=$SPORTAJGA_PACKAGES" >> .npmrc
+
 RUN yarn add next
+
+RUN rm ./.npmrc
 
 EXPOSE 3000
 

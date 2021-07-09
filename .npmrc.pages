@@ -1,1 +1,2 @@
-@sportajga:registry=https://npm.pkg.github.com/:_authToken=${SPORTAJGA_PACKAGES}
+@sportajga:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=$SPORTAJGA_PACKAGES

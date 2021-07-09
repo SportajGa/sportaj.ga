@@ -11,6 +11,7 @@ on:
       - 'README.md'
       - 'package.json'
       - 'Dockerfile'
+      - '.npmrc*'
 
 jobs:
   pre_ci:

@@ -1,4 +1,5 @@
-const nextTranslate = require('next-translate')
+const nextTranslate = require('next-translate');
+const { withPlausibleProxy } = require('next-plausible');
 
 // @ts-ignore
 const withTM = require('next-transpile-modules')([
@@ -10,7 +11,7 @@ const withTM = require('next-transpile-modules')([
     '@fullcalendar/daygrid',
     '@fullcalendar/timegrid',
     '@fullcalendar/google-calendar'
-])
+]);
 
 const config = {
     async rewrites() {
@@ -30,4 +31,4 @@ const config = {
 }
 
 // @ts-ignore No types
-module.exports = withTM(nextTranslate(config));
+module.exports = withTM(withPlausibleProxy()(nextTranslate(config)));

@@ -58,7 +58,7 @@
     "@types/react-responsive": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
-    "autoprefixer": "9",
+    "autoprefixer": "10",
     "babel-plugin-transform-import-ignore": "^1.1.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "daisyui": "^1.6.1",

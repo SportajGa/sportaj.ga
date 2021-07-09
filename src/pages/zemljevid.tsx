@@ -14,6 +14,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = ({ clubs }) => {
 			{clubs.map((c) => (
 				<div key={c.slug}>
 					<h1>{c.name}</h1>
+					<h2>Slug - {c.slug}</h2>
 				</div>
 			))}
 		</>

@@ -26,9 +26,7 @@ const config = {
             'sportaj.ga'
         ]
     },
-    future: {
-        webpack5: true,
-    },
+    webpack5: true
 }
 
 // @ts-ignore No types

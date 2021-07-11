@@ -1661,12 +1661,13 @@
     tslib "^2.3.0"
     typescript "^4.3.4"
 
-"@sportajga/api@^0.0.12":
-  version "0.0.12"
-  resolved "https://npm.pkg.github.com/download/@sportajga/api/0.0.12/9bbfbaf2a3a1ef225ca81d972740033b7054dfeba861da3910648dfa4be7cec5#9fcc82eaa6cdf32d4390f61eeb2de3e85007952f"
-  integrity sha512-E0kFrRjtIJ0AkPx+vv53kuosDWvPMxxgatiz4MmP+xGTS4S6heY2r68d/474b6s4plOiWr3LdQhIaF+OeyeRlQ==
+"@sportajga/api@^0.0.16":
+  version "0.0.16"
+  resolved "https://npm.pkg.github.com/download/@sportajga/api/0.0.16/899dedacdfe86435ea67470d680a14e9cc5593fdac9afba074c5f0ffd925238d#6754ce0f04c15ae5191fc125b195ea30b4b30ada"
+  integrity sha512-jitGhvlBo5fW6Vk5v5MMZ6vrUsLWBAcgBEN4ASrkCkkgO+5tt475UHSvNhyOmg5QJzM/GMPatE2IrbTny1DwYw==
   dependencies:
-    graphql "^15.5.0"
+    dotenv "^10.0.0"
+    graphql "^15.5.1"
     standard-version "^9.3.0"
 
 "@storybook/addon-actions@^6.3.4":
@@ -2469,7 +2470,7 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@^16.3.0":
+"@types/node@*":
   version "16.3.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.3.0.tgz#1836664e4fad13b51b07eb6e882a53925e6543c4"
   integrity sha512-OydMCocGMGqw/1BnWbhtK+AtwyWTOigtrQlRe57OQmTNcI3HKlVI5FGlh+c4mSqInMPLynFrTlYjfajPu9O/eQ==
@@ -2478,6 +2479,11 @@
   version "14.17.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.5.tgz#b59daf6a7ffa461b5648456ca59050ba8e40ed54"
   integrity sha512-bjqH2cX/O33jXT/UmReo2pM7DIJREPMnarixbQ57DOOzzFaI6D2+IcwaJQaJpv0M1E9TIhPCYVxrkcityLjlqA==
+
+"@types/node@^16.3.1":
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.3.1.tgz#24691fa2b0c3ec8c0d34bfcfd495edac5593ebb4"
+  integrity sha512-N87VuQi7HEeRJkhzovao/JviiqKjDKMVKxKMfUvSKw+MbkbW8R0nA3fi/MQhhlxV2fQ+2ReM+/Nt4efdrJx3zA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -4751,10 +4757,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-daisyui@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.6.1.tgz#052d491f7246d81b88c602e21ed0b0e92b75f775"
-  integrity sha512-YZ6MZg5LqR+TeI2N5GyaMGbRm+qFyrJ7jjWF5p/NQPKYvqCNGyYrjOOl1CtMWHEV5J58f8O+/Ox889mnwKQq5g==
+daisyui@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.8.0.tgz#8ff1e1ceffc25900acaa66388ab29a33302f3acf"
+  integrity sha512-qirf1JF+1YrJeQf8QBx1xIqO/K1FPpbgHnZwk15FYE/GlbDvgQzhvXx4y6yaBHZldFdSGM5b58Q/wdRThPfvUw==
 
 damerau-levenshtein@^1.0.6:
   version "1.0.7"
@@ -5081,6 +5087,11 @@ dotenv-webpack@^1.8.0:
   integrity sha512-o8pq6NLBehtrqA8Jv8jFQNtG9nhRtVqmoD4yWbgUyoU3+9WBlPe+c2EAiaJok9RB28QvrWvdWLZGeTT5aATDMg==
   dependencies:
     dotenv-defaults "^1.0.2"
+
+dotenv@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
+  integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
 dotenv@^6.2.0:
   version "6.2.0"
@@ -6470,7 +6481,7 @@ graphql-tag@^2.12.0:
   dependencies:
     tslib "^2.1.0"
 
-graphql@^15.5.0, graphql@^15.5.1:
+graphql@^15.5.1:
   version "15.5.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
   integrity sha512-FeTRX67T3LoE3LWAxxOlW2K3Bz+rMYAC18rRguK4wgXaTZMiJwSUwDmPFo3UadAKbzirKIg5Qy+sNJXbpPRnQw==

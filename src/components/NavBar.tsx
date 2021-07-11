@@ -1,6 +1,7 @@
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Disclosure } from '@headlessui/react';
+import { signIn } from 'next-auth/client';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React from 'react';
@@ -40,6 +41,17 @@ const NavBar: React.FC = () => {
 										<div className="flex space-x-4">
 											<NavBarItem href="/" className={`${navItemStyle}`} content={t('home')} />
 											<NavBarItem href="/zemljevid" className={`${navItemStyle}`} content={t('map')} />
+										</div>
+									</div>
+								</div>
+								<div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
+									<div className="w-full hidden lg:block lg:ml-6 content-center">
+										<div className="flex space-x-4 justify-end">
+											<button onClick={() => void signIn()}>
+												<span className="px-3 py-2 duration-150 text-sm font-medium select-none cursor-pointer rounded-md">
+													Login
+												</span>
+											</button>
 										</div>
 									</div>
 								</div>

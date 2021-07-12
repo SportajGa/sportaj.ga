@@ -5,8 +5,7 @@
     ],
     "defaultLocale": "sl",
     "pages": {
-        "*": [
-            "common"
-        ]
+        "*": ["common"],
+        "/privacy": ["privacy"]
     }
 }

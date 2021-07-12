@@ -1,13 +1,16 @@
-import React from 'react';
 import type { NextPage } from 'next';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const PrivacyPage: NextPage = () => {
+	const { t } = useTranslation('privacy');
+
 	return (
 		<>
 			<div className="container">
 				<div className="p-16 mt-8">
 					<div className="grid grid-flow-row">
-						<h1 className="text-2xl font-bold text-center">Privacy Policy</h1>
+						<h1 className="text-2xl font-bold text-center">{t('title')}</h1>
 						<p className="text-center">Last updated on the 12th of July 2021. Effective as of the 13th of July 2021</p>
 					</div>
 				</div>

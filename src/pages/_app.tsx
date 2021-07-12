@@ -19,8 +19,7 @@ config.autoAddCss = false;
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	return (
 		<>
-			{/* TODO: Change to production URL */}
-			<PlausibleProvider domain="beta.sportaj.ga">
+			<PlausibleProvider domain="sportaj.ga">
 				<ApolloProvider client={client}>
 					<Head>
 						<meta httpEquiv="Expires" content="1y" />

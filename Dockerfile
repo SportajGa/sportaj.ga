@@ -31,6 +31,7 @@ COPY --from=build /build/package*.json ./
 COPY --from=build /build/yarn.lock ./
 COPY --from=build /build/locales ./
 COPY --from=build /build/i18n.json ./
+COPY --from=build /build/src/next.config.js ./src/
 COPY --from=build /build/src/.next ./src/.next
 COPY --from=build /build/src/public ./src/public
 

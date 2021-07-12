@@ -1,6 +1,7 @@
 {
     "locales": [
-        "sl"
+        "sl",
+        "en"
     ],
     "defaultLocale": "sl",
     "pages": {

@@ -6,14 +6,14 @@ const PrivacyPage: NextPage = () => {
 		<>
 			<div className="container">
 				<div className="p-16 mt-8">
-					<div className="grid grid-flow-row dark:text-gray-200">
+					<div className="grid grid-flow-row">
 						<h1 className="text-2xl font-bold text-center">Privacy Policy</h1>
-						<p className="text-center dark:text-gray-300">Last updated on the 12th of July 2021. Effective as of the 13th of July 2021</p>
+						<p className="text-center">Last updated on the 12th of July 2021. Effective as of the 13th of July 2021</p>
 					</div>
 				</div>
 			</div>
 
-			<div className="p-8 dark:text-gray-200 bg-dark-alt">
+			<div className="p-8">
 				<div className="container prose prose-md">
 					{/* <p>
 						PenguBot provides a chat bot for the <a href="https://discord.com">Discord</a> chat platform, (the "Bot"), a website that

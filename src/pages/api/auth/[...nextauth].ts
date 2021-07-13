@@ -9,6 +9,9 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 				clientId: process.env.FACEBOOK_CLIENT_ID,
 				clientSecret: process.env.FACEBOOK_CLIENT_SECRET
 			})
-		]
+		],
+		pages: {
+			signIn: '/auth/signin'
+		}
 	});
 };

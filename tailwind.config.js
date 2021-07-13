@@ -3,7 +3,10 @@ module.exports = {
 	darkMode: 'media', // or 'media' or 'class'
 	theme: {
 		extend: {
-			colors: require('daisyui/colors')
+			colors: {
+				...require('daisyui/colors'),
+				fbBlue: '#4267B2'
+			}
 		},
 		container: {
 			center: true

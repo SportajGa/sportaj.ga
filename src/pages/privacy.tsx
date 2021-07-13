@@ -1,3 +1,4 @@
+import { HostAddress } from 'core/constants';
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
@@ -42,40 +43,16 @@ const PrivacyPage: NextPage = () => {
 					<h2>{t('dataRetention.title')}</h2>
 					<p>{t('dataRetention.body')}</p>
 
-					<h2>Disclousure of Information</h2>
+					<h2>{t('disclosure.title')}</h2>
 					<p>
-						The Company is not in the business of selling your information. There are, however, certain circumstances in which we may
-						share your information with certain third parties, as set forth below:{' '}
-						<li>Consent: We may transfer your information with your consent.</li>
-						<li>
-							Consultants and outside collaborators: Like many businesses, we sometimes request the help of other companies or
-							individuals to perform certain functions. Examples of such functions include accessing, modifying and adding to the
-							open-source source code. In order to perform these functions they may require samples of any of the data stored by the
-							Services. These people will however never have access to the full data and any data will always be anonymized where
-							required.
-						</li>
-						<li>
-							Legal Requirements: We may disclose your information if required to do so by law or in the good faith belief that such
-							action is necessary to (i) comply with a legal obligation, (ii) protect and defend the rights or property of the Company
-							or Related Companies, (iii) protect the personal safety of users of the Services or the public, or (iv) protect against
-							legal liability.
-						</li>
-						<h3>Unsolicited Information</h3>
-						<p>
-							You may provide us with ideas for new products or modifications to existing products, and other unsolicited submissions
-							(collectively, “Unsolicited Information”). All Unsolicited Information shall be deemed to be non-confidential and we shall
-							be free to reproduce, use, disclose, and distribute such Unsolicited Information to others without limitation or
-							attribution.
-						</p>
-						<h3>Data Processing</h3>
-						<p>
-							The Company is based in Slovenia, the Services provided and the data is hosted on the servers at Srednja
-							elektro-računalniška šola Maribor, Smetanova ulica 6, 2000 Maribor, Slovenia. No matter where you are located you consent
-							to processing and transferring of your information in and to Germany, Slovenia, and other countries. The laws of Germany,
-							Slovenia, and other countries governing data collection and use may not be as comprehensive or protective as the laws of
-							the country where you live.
-						</p>
-						<h3>Children</h3>
+						{t('disclosure.disclaimer')} <li>{t('disclosure.points', {}, { returnObjects: true })[0]}</li>
+						<li>{t('disclosure.points', {}, { returnObjects: true })[1]}</li>
+						<li>{t('disclosure.points', {}, { returnObjects: true })[2]}</li>
+						<h3>{t('disclosure.subpoints.unsolicited.title')}</h3>
+						<p>{t('disclosure.subpoints.unsolicited.body')}</p>
+						<h3>{t('disclosure.subpoints.processing.title')}</h3>
+						<p>{t('disclosure.subpoints.processing.body', { HostAddress })}</p>
+						<h3>{t('disclosure.subpoints.children.title')}</h3>
 						<p>
 							Our Services are for users age 13 and over and we do not knowingly collect personal information from children under the
 							age of 13. If you are a parent or guardian of a child under the age of 13 and believe he or she has disclosed personal
@@ -86,28 +63,16 @@ const PrivacyPage: NextPage = () => {
 							protection law. If we learn that we are engaged in that processing with such users, we will halt such processing and will
 							take reasonable measures to promptly remove applicable information from our records.
 						</p>
-						<h3>Use of Information</h3>
-						<p>
-							We use the information you provide in a manner that is consistent with this Privacy Policy. If you provide information for
-							a certain reason, we may use the information in connection with the reason for which it was provided. For instance, if you
-							contact us by email, we will use the information you provide to answer your question or resolve your problem. Also, if you
-							provide information in order to obtain access to the Services, we will use your information to provide you with access to
-							such services and to monitor your use of such services. The Company and its subsidiaries and affiliates (the “Related
-							Companies”) may also use your information collected through the Services to help us improve the content and functionality
-							of the Services, to better understand our users and to improve the Services. The Company and its affiliates may use this
-							information to contact you in the future to tell you about services we believe will be of interest to you. If we do so,
-							each marketing communication we send you will contain instructions permitting you to "opt-out" of receiving future
-							marketing communications. In addition, if at any time you wish not to receive any future marketing communications or you
-							wish to have your name deleted from our mailing lists, please contact us as indicated below.
-						</p>
-						<h3>Security</h3>
+						<h3>{t('disclosure.subpoints.use.title')}</h3>
+						<p>{t('disclosure.subpoints.use.body')}</p>
+						<h3>{t('disclosure.subpoints.security.title')}</h3>
 						<p>
 							We take reasonable steps to protect the information provided via the Services from loss, misuse, and unauthorized access,
 							disclosure, alteration, or destruction. However, no Internet or email transmission is ever fully secure or error free. In
 							particular, email sent to or from the Services may not be secure. Therefore, you should take special care in deciding what
 							information you send to us via email. Please keep this in mind when disclosing any information via the Internet.
 						</p>
-						<h3>Data Rights</h3>
+						<h3>{t('disclosure.subpoints.rights.title')}</h3>
 						<p>
 							We believe that users should be treated equally no matter where they are, and so we are making the following options to
 							control your data available to all users, regardless of their location. Individuals in California, the European Economic

@@ -10,7 +10,7 @@ const PrivacyPage: NextPage = () => {
 			<div className="container">
 				<div className="p-16 mt-8">
 					<div className="grid grid-flow-row">
-						<h1 className="text-2xl font-bold text-center">{t('title')}</h1>
+						<h1 className="text-3xl font-bold text-center">{t('title')}</h1>
 						<p className="text-center">Last updated on the 12th of July 2021. Effective as of the 13th of July 2021</p>
 					</div>
 				</div>
@@ -26,7 +26,7 @@ const PrivacyPage: NextPage = () => {
 						applicable law, PenguBot is the "data controller" of user data collected through the Services.
 					</p> */}
 
-					<h3>{t('dataCollection.title')}</h3>
+					<h2>{t('dataCollection.title')}</h2>
 					<p>
 						{t('dataCollection.interaction')}
 						{/* Information we collect may include but is not be limited to cookies, usage data and, usernames, or other content
@@ -36,10 +36,10 @@ const PrivacyPage: NextPage = () => {
 					<p>{t('dataCollection.services')}</p>
 					<p>{t('dataCollection.cookies')}</p>
 
-					<h3>{t('dataRetention.title')}</h3>
+					<h2>{t('dataRetention.title')}</h2>
 					<p>{t('dataRetention.body')}</p>
 
-					<h3>Disclousure of Information</h3>
+					<h2>Disclousure of Information</h2>
 					<p>
 						The Company is not in the business of selling your information. There are, however, certain circumstances in which we may
 						share your information with certain third parties, as set forth below:{' '}

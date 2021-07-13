@@ -26,31 +26,15 @@ const PrivacyPage: NextPage = () => {
 						applicable law, PenguBot is the "data controller" of user data collected through the Services.
 					</p> */}
 
-					<h3>Data We Collect</h3>
+					<h3>{t('dataCollection.title')}</h3>
 					<p>
-						When you interact with us through the Services, we may collect information from you, as further described below: Information
-						You Provide: We collect information from you when you voluntarily provide us with the information, such as when you use any of
-						the Services.
+						{t('dataCollection.interaction')}
 						{/* Information we collect may include but is not be limited to cookies, usage data and, usernames, or other content
 						you send via the chat feature in Discord when interacting with the Bot. */}
 					</p>
-					<p>
-						We may use third party web site analytics tools such as but not limited to Google Analytics on our Site that employ cookies to
-						collect certain information concerning your use of our Services. However, you can disable cookies by changing your browser
-						settings. Further information about the procedure to follow in order to disable cookies can be found on your Internet browser
-						provider's website via your help screen.
-					</p>
-					<p>
-						When you interact with us through the Services, we receive and store certain information such as an IP address, device ID and
-						your activities within the Services. We may store such information or such information may be included in the databases owned
-						and maintained by affiliates, agents or service providers. The Services may use such information and pool it with other
-						information to track, for example, the total number of visitors to our Site, the number of messages users have sent, as well
-						as the sites which refers visitors to our Services.
-					</p>
-					<p>
-						We employ cookies and similar technologies to keep track of your local settings such as which account you have used to log
-						into the Site.
-					</p>
+					<p>{t('dataCollection.analytics')}</p>
+					<p>{t('dataCollection.services')}</p>
+					<p>{t('dataCollection.cookies')}</p>
 
 					<h3>Data Retention</h3>
 					<p>

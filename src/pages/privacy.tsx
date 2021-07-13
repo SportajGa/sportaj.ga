@@ -66,23 +66,9 @@ const PrivacyPage: NextPage = () => {
 						<h3>{t('disclosure.subpoints.use.title')}</h3>
 						<p>{t('disclosure.subpoints.use.body')}</p>
 						<h3>{t('disclosure.subpoints.security.title')}</h3>
-						<p>
-							We take reasonable steps to protect the information provided via the Services from loss, misuse, and unauthorized access,
-							disclosure, alteration, or destruction. However, no Internet or email transmission is ever fully secure or error free. In
-							particular, email sent to or from the Services may not be secure. Therefore, you should take special care in deciding what
-							information you send to us via email. Please keep this in mind when disclosing any information via the Internet.
-						</p>
+						<p>{t('disclosure.subpoints.security.body')}</p>
 						<h3>{t('disclosure.subpoints.rights.title')}</h3>
-						<p>
-							We believe that users should be treated equally no matter where they are, and so we are making the following options to
-							control your data available to all users, regardless of their location. Individuals in California, the European Economic
-							Area, Canada, Costa Rica and some other jurisdictions have certain legal rights to obtain confirmation of whether we hold
-							personal data about them, to access personal data we hold about (including, in some cases, in portable form), and to
-							obtain its correction, update, amendment or deletion in appropriate circumstances. They may also object to our uses or
-							disclosures of personal data, to request a restriction on its processing, or withdraw any consent, though such actions
-							typically will not have retroactive effect. They also will not affect our ability to continue processing data in lawful
-							ways.
-						</p>
+						<p>{t('disclosure.subpoints.rights.body')}</p>
 						<p>
 							If you would like to submit a data access request, you can do so by sending an email to{' '}
 							<a href="mailto:contact@sportaj.ga">contact@sportaj.ga</a>. Upon request we will start the process and provide you a link
@@ -94,63 +80,29 @@ const PrivacyPage: NextPage = () => {
 							of your message, along with an explanation of what data subject right you are seeking to exercise. For your protection, we
 							may take steps to verify identity before responding to your request.
 						</p>
-						<h3>California Consumer Privacy Act</h3>
-						<p>
-							Consumers residing in California are afforded certain additional rights with respect to their personal information under
-							the California Consumer Privacy Act or (“CCPA”) and the “Shine the Light” Law. If you are a California resident, this
-							section applies to you.
-						</p>
-						<h4>California Consumer Privacy Act</h4>
-						<p>
-							Our Collection and Use of Personal Information: We collect the following categories of personal information: internet or
-							other network information (how you interact with the application); location information (because your IP address may
-							indicate your general location); and other information that identifies or can be reasonably associated with you. For
-							examples of the precise data points we collect and the sources of such collection, please see the "Data We Collect”
-							section above. We collect personal information for the business and commercial purposes described in "Use of Information”
-							above.
-						</p>
-						<p>
-							Disclosure of Personal Information: We may share your personal information with third parties as described in the
-							“Disclosure Of Information” section above. We disclose the categories of personal information mentioned above for business
-							or commercial purposes.
-						</p>
-						<p>
-							No Sale of Personal Information: The CCPA sets forth certain obligations for businesses that sell personal information. We
-							do not sell the personal information of our users.
-						</p>
-						<p>
-							Exercising Your Consumer Rights: If you are a California resident, you have the right to request (1) more information
-							about the categories and specific pieces of personal information we have collected and disclosed for a business purpose in
-							the last 12 months, (2) deletion of your personal information, and (3) to opt out of sales of your personal information,
-							if applicable. Details on how to make these requests are in the “Data Rights” section above. We will not discriminate
-							against you if you exercise your rights under the CCPA.
-						</p>
-						<h3>Data Protection Officer</h3>
+						<h3>{t('disclosure.subpoints.ccpa.title')}</h3>
+						<p>{t('disclosure.subpoints.ccpa.pre')}</p>
+						<h4>{t('disclosure.subpoints.ccpa.title')}</h4>
+						<p>{t('disclosure.subpoints.ccpa.collection')}</p>
+						<p>{t('disclosure.subpoints.ccpa.disclosure')}</p>
+						<p>{t('disclosure.subpoints.ccpa.sale')}</p>
+						<p>{t('disclosure.subpoints.ccpa.rights')}</p>
+						<h3>{t('disclosure.subpoints.protection.title')}</h3>
 						<p>
 							In respect of the data of our users generated and saved from the website, and other related services, the Data Protection
 							Officer for the company is Nejc Drobnič (<a href="mailto:nejc@sportaj.ga">nejc@sportaj.ga</a>).
 						</p>
-						<h3>External Links</h3>
-						<p>
-							This Privacy Policy applies only to the Services. The Services may contain links to other web sites and products not
-							operated or controlled by us (the “Third Party Sites”). The policies and procedures we have described here do not apply to
-							the Third Party Sites. The links from the Services do not imply that we endorse or have reviewed the Third Party Sites. We
-							suggest contacting those sites directly for information on their privacy policies.
-						</p>
-						<h3>Third Parties</h3>
+						<h3>{t('disclosure.subpoints.external.title')}</h3>
+						<p>{t('disclosure.subpoints.external.body')}</p>
+						<h3>{t('disclosure.subpoints.3rd.title')}</h3>
 						<p>
 							The Bot and Services are built collectively from the use of third-party tools and thus enforces their own policies to be
 							applicable to the users along with this one. We use Google's Services for which the policy can be found{' '}
 							<a href="https://policies.google.com/privacy">here</a>.
 						</p>
-						<h3>Changes to Policy</h3>
-						<p>
-							We reserve the right to update or modify this Privacy Policy at any time and from time to time without prior notice.
-							Please review this policy periodically, and especially before you provide any information. This Privacy Policy was last
-							updated on the date indicated above. Your continued use of the Services after any changes or revisions to this Privacy
-							Policy shall indicate your agreement with the terms of such revised Privacy Policy.
-						</p>
-						<h3>Contact Us</h3>
+						<h3>{t('disclosure.subpoints.policy.title')}</h3>
+						<p>{t('disclosure.subpoints.policy.body')}</p>
+						<h3>{t('disclosure.subpoints.contact.title')}</h3>
 						<p>
 							You may feel free to contact us regarding any questions related to your information and privacy policy at{' '}
 							<a href="mailto:contact@sportaj.ga">contact@sportaj.ga</a>.

@@ -36,12 +36,8 @@ const PrivacyPage: NextPage = () => {
 					<p>{t('dataCollection.services')}</p>
 					<p>{t('dataCollection.cookies')}</p>
 
-					<h3>Data Retention</h3>
-					<p>
-						We retain personal data for so long as it may be relevant to the purposes identified but not limited to herein. To dispose off
-						personal data, we may anonymize, delete or take other appropriate steps for it. Data may persist in copies made for backup for
-						additional time.
-					</p>
+					<h3>{t('dataRetention.title')}</h3>
+					<p>{t('dataRetention.body')}</p>
 
 					<h3>Disclousure of Information</h3>
 					<p>

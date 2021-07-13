@@ -4,6 +4,7 @@ import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
 import Loading from 'components/Loading';
+import Offset from 'components/Offset';
 import { client, GraphQLResponse } from 'core/apiClient';
 import { allClubSlugs } from 'core/clubs';
 import GoogleMapReact from 'google-map-react';
@@ -51,6 +52,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 				</Head>
 			) : null}
 
+			<Offset />
 			<div className="container">
 				<div className="flex flex-wrap">
 					<div className="content-center shadow-lg w-2/6 hidden md:pr-2 md:block">

@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import type { Club } from '@sportajga/api';
+import Offset from 'components/Offset';
 import { client, GraphQLResponse } from 'core/apiClient';
 import type { GetStaticProps, NextPage } from 'next';
 import React from 'react';
@@ -11,6 +12,7 @@ export interface ZemljevidProps {
 const ZemljevidPage: NextPage<ZemljevidProps> = ({ clubs }) => {
 	return (
 		<>
+			<Offset />
 			{clubs.map((c) => (
 				<div key={c.slug}>
 					<h1>{c.name}</h1>

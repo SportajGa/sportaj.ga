@@ -1,3 +1,4 @@
+import Offset from 'components/Offset';
 import { HostAddress } from 'core/constants';
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
@@ -12,6 +13,7 @@ const PrivacyPage: NextPage = () => {
 		<>
 			<NextSeo title={t('title')} />
 
+			<Offset />
 			<div className="container">
 				<div className="p-16 mt-8">
 					<div className="grid grid-flow-row">

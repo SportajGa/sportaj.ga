@@ -34,7 +34,6 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 					<DefaultSeo {...DefaultSEOProps} />
 
 					<NavBar />
-					<div className="py-12" />
 					<Component {...pageProps} />
 				</ApolloProvider>
 			</PlausibleProvider>

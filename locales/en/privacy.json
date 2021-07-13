@@ -29,7 +29,8 @@
                 "body": "The Company is based in Slovenia, the Services provided and the data is hosted on the servers at {{HostAddress}}. No matter where you are located you consent to processing and transferring of your information in and to Germany, Slovenia, and other countries. The laws of Germany, Slovenia, and other countries governing data collection and use may not be as comprehensive or protective as the laws of the country where you live."
             },
             "children": {
-                "title": "Children"
+                "title": "Children",
+                "body": "Our Services are for users age 13 and over and we do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian of a child under the age of 13 and believe he or she has disclosed personal information to us please contact us at <0>{{email}}</0>. Note: In some countries, the age of digital consent is older than 13. If you are in those countries, you must be at least that age to use the Services. For example, for residents of the EEA, where processing of personal information is based on consent, SportajGa will not knowingly engage in that processing for users under the age of consent established by applicable data protection law. If we learn that we are engaged in that processing with such users, we will halt such processing and will take reasonable measures to promptly remove applicable information from our records."
             },
             "use": {
                 "title": "Use of Information",
@@ -41,7 +42,9 @@
             },
             "rights": {
                 "title": "Data Rights",
-                "body": "We believe that users should be treated equally no matter where they are, and so we are making the following options to control your data available to all users, regardless of their location. Individuals in California, the European Economic Area, Canada, Costa Rica and some other jurisdictions have certain legal rights to obtain confirmation of whether we hold personal data about them, to access personal data we hold about (including, in some cases, in portable form), and to obtain its correction, update, amendment or deletion in appropriate circumstances. They may also object to our uses or disclosures of personal data, to request a restriction on its processing, or withdraw any consent, though such actions typically will not have retroactive effect. They also will not affect our ability to continue processing data in lawful ways."
+                "body": "We believe that users should be treated equally no matter where they are, and so we are making the following options to control your data available to all users, regardless of their location. Individuals in California, the European Economic Area, Canada, Costa Rica and some other jurisdictions have certain legal rights to obtain confirmation of whether we hold personal data about them, to access personal data we hold about (including, in some cases, in portable form), and to obtain its correction, update, amendment or deletion in appropriate circumstances. They may also object to our uses or disclosures of personal data, to request a restriction on its processing, or withdraw any consent, though such actions typically will not have retroactive effect. They also will not affect our ability to continue processing data in lawful ways.",
+                "request": "If you would like to submit a data access request, you can do so by sending an email to <0>{{email}}</0>. Upon request we will start the process and provide you a link to access the personal data the Services has about you within 30-45 standard working days.",
+                "modifications": "You can request modifications to your data from us directly. Please write us at <0>{{email}}</0> with the words \"Personal Data Request\" in the subject or body of your message, along with an explanation of what data subject right you are seeking to exercise. For your protection, we may take steps to verify identity before responding to your request."
             },
             "ccpa": {
                 "title": "California Consumer Privacy Act",
@@ -52,7 +55,8 @@
                 "rights": "Exercising Your Consumer Rights: If you are a California resident, you have the right to request (1) more information about the categories and specific pieces of personal information we have collected and disclosed for a business purpose in the last 12 months, (2) deletion of your personal information, and (3) to opt out of sales of your personal information, if applicable. Details on how to make these requests are in the “Data Rights” section above. We will not discriminate against you if you exercise your rights under the CCPA."
             },
             "protection": {
-                "title": "Data Protection Officer"
+                "title": "Data Protection Officer",
+                "body": "In respect of the data of our users generated and saved from the website, and other related services, the Data Protection Officer for the company is Nejc Drobnič (<0>{{email}}</0>)."
             },
             "external": {
                 "title": "External Links",
@@ -66,7 +70,8 @@
                 "body": "We reserve the right to update or modify this Privacy Policy at any time and from time to time without prior notice. Please review this policy periodically, and especially before you provide any information. This Privacy Policy was last updated on the date indicated above. Your continued use of the Services after any changes or revisions to this Privacy Policy shall indicate your agreement with the terms of such revised Privacy Policy."
             },
             "contact": {
-                "title": "Contact Us"
+                "title": "Contact Us",
+                "body": "You may feel free to contact us regarding any questions related to your information and privacy policy at <0>{{email}}</0>."
             }
         }
     }

@@ -1,6 +1,7 @@
 import { HostAddress } from 'core/constants';
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
+import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 
@@ -54,14 +55,12 @@ const PrivacyPage: NextPage = () => {
 						<p>{t('disclosure.subpoints.processing.body', { HostAddress })}</p>
 						<h3>{t('disclosure.subpoints.children.title')}</h3>
 						<p>
-							Our Services are for users age 13 and over and we do not knowingly collect personal information from children under the
-							age of 13. If you are a parent or guardian of a child under the age of 13 and believe he or she has disclosed personal
-							information to us please contact us at <a href="mailto:contact@sportaj.ga">contact@sportaj.ga</a>. Note: In some
-							countries, the age of digital consent is older than 13. If you are in those countries, you must be at least that age to
-							use the Services. For example, for residents of the EEA, where processing of personal information is based on consent,
-							SportajGa will not knowingly engage in that processing for users under the age of consent established by applicable data
-							protection law. If we learn that we are engaged in that processing with such users, we will halt such processing and will
-							take reasonable measures to promptly remove applicable information from our records.
+							<Trans
+								i18nKey="privacy:disclosure.subpoints.children.body"
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
+								components={[<a href="mailto:contact@sportaj.ga" />]}
+								values={{ email: 'contact@sportaj.ga' }}
+							/>
 						</p>
 						<h3>{t('disclosure.subpoints.use.title')}</h3>
 						<p>{t('disclosure.subpoints.use.body')}</p>
@@ -70,15 +69,20 @@ const PrivacyPage: NextPage = () => {
 						<h3>{t('disclosure.subpoints.rights.title')}</h3>
 						<p>{t('disclosure.subpoints.rights.body')}</p>
 						<p>
-							If you would like to submit a data access request, you can do so by sending an email to{' '}
-							<a href="mailto:contact@sportaj.ga">contact@sportaj.ga</a>. Upon request we will start the process and provide you a link
-							to access the personal data the Services has about you within 30-45 standard working days.
+							<Trans
+								i18nKey="privacy:disclosure.subpoints.rights.request"
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
+								components={[<a href="mailto:contact@sportaj.ga" />]}
+								values={{ email: 'contact@sportaj.ga' }}
+							/>
 						</p>
 						<p>
-							You can request modifications to your data from us directly. Please write us at{' '}
-							<a href="mailto:contact@sportaj.ga">contact@sportaj.ga</a> with the words "Personal Data Request" in the subject or body
-							of your message, along with an explanation of what data subject right you are seeking to exercise. For your protection, we
-							may take steps to verify identity before responding to your request.
+							<Trans
+								i18nKey="privacy:disclosure.subpoints.rights.modifications"
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
+								components={[<a href="mailto:contact@sportaj.ga" />]}
+								values={{ email: 'contact@sportaj.ga' }}
+							/>
 						</p>
 						<h3>{t('disclosure.subpoints.ccpa.title')}</h3>
 						<p>{t('disclosure.subpoints.ccpa.pre')}</p>
@@ -89,14 +93,18 @@ const PrivacyPage: NextPage = () => {
 						<p>{t('disclosure.subpoints.ccpa.rights')}</p>
 						<h3>{t('disclosure.subpoints.protection.title')}</h3>
 						<p>
-							In respect of the data of our users generated and saved from the website, and other related services, the Data Protection
-							Officer for the company is Nejc Drobnič (<a href="mailto:nejc@sportaj.ga">nejc@sportaj.ga</a>).
+							<Trans
+								i18nKey="privacy:disclosure.subpoints.protection.body"
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
+								components={[<a href="mailto:nejc@sportaj.ga" />]}
+								values={{ email: 'nejc@sportaj.ga' }}
+							/>
 						</p>
 						<h3>{t('disclosure.subpoints.external.title')}</h3>
 						<p>{t('disclosure.subpoints.external.body')}</p>
 						<h3>{t('disclosure.subpoints.3rd.title')}</h3>
 						<p>
-							The Bot and Services are built collectively from the use of third-party tools and thus enforces their own policies to be
+							The Services are built collectively from the use of third-party tools and thus enforces their own policies to be
 							applicable to the users along with this one. We use Google's Services for which the policy can be found{' '}
 							<a href="https://policies.google.com/privacy">here</a>.
 						</p>
@@ -104,8 +112,12 @@ const PrivacyPage: NextPage = () => {
 						<p>{t('disclosure.subpoints.policy.body')}</p>
 						<h3>{t('disclosure.subpoints.contact.title')}</h3>
 						<p>
-							You may feel free to contact us regarding any questions related to your information and privacy policy at{' '}
-							<a href="mailto:contact@sportaj.ga">contact@sportaj.ga</a>.
+							<Trans
+								i18nKey="privacy:disclosure.subpoints.contact.body"
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
+								components={[<a href="mailto:contact@sportaj.ga" />]}
+								values={{ email: 'contact@sportaj.ga' }}
+							/>
 						</p>
 					</p>
 				</div>

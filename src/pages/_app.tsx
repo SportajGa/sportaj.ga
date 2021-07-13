@@ -11,6 +11,8 @@ import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
+import { store } from 'state';
 import 'styles/_App.css';
 
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
@@ -21,20 +23,22 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 		<>
 			<PlausibleProvider domain="sportaj.ga">
 				<ApolloProvider client={client}>
-					<Head>
-						<meta httpEquiv="Expires" content="1y" />
-						<meta httpEquiv="Pragma" content="1y" />
-						<meta httpEquiv="Cache-Control" content="1y" />
+					<ReduxProvider store={store}>
+						<Head>
+							<meta httpEquiv="Expires" content="1y" />
+							<meta httpEquiv="Pragma" content="1y" />
+							<meta httpEquiv="Cache-Control" content="1y" />
 
-						<link rel="shortcut icon" href="/icons/favicon.ico" />
+							<link rel="shortcut icon" href="/icons/favicon.ico" />
 
-						{/* This fixes big icons with next-seo since CSS is somehow overwritten*/}
-						<style>{dom.css()}</style>
-					</Head>
-					<DefaultSeo {...DefaultSEOProps} />
+							{/* This fixes big icons with next-seo since CSS is somehow overwritten*/}
+							<style>{dom.css()}</style>
+						</Head>
+						<DefaultSeo {...DefaultSEOProps} />
 
-					<NavBar />
-					<Component {...pageProps} />
+						<NavBar />
+						<Component {...pageProps} />
+					</ReduxProvider>
 				</ApolloProvider>
 			</PlausibleProvider>
 		</>

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 
@@ -7,6 +8,8 @@ const PrivacyPage: NextPage = () => {
 
 	return (
 		<>
+			<NextSeo title={t('title')} />
+
 			<div className="container">
 				<div className="p-16 mt-8">
 					<div className="grid grid-flow-row">

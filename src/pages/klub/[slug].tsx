@@ -3,15 +3,16 @@ import type { Club, ClubInjections } from '@sportajga/api';
 import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
+import type { LatLon } from 'components/Club/ClubMap';
 import Loading from 'components/Loading';
 import Offset from 'components/Offset';
 import { client, GraphQLResponse } from 'core/apiClient';
 import { allClubSlugs } from 'core/clubs';
-import GoogleMapReact from 'google-map-react';
 import Interweave from 'interweave';
 import type { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 
@@ -23,14 +24,16 @@ export interface KlubProps {
 	injections: Pick<ClubInjections, 'head' | 'pageEnd'> | null;
 }
 
+const ClubMap = dynamic(() => import('components/Club/ClubMap'), { ssr: false });
+
 const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, injections }) => {
 	const router = useRouter();
-	const [latLon, setLatLon] = useState<{ lat: number; lon: number }>();
+	const [latLon, setLatLon] = useState<LatLon>();
 
 	useEffect(() => {
 		if (location) {
-			const [lat, lon] = location.split(',').map(Number);
-			setLatLon({ lat, lon });
+			const [latitude, longitude] = location.split(',').map(Number);
+			setLatLon({ latitude, longitude });
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -68,14 +71,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 						)}
 						{location && latLon && (
 							<div className="h-96">
-								<GoogleMapReact
-									yesIWantToUseGoogleMapApiInternals={true}
-									center={{
-										lat: latLon!.lat,
-										lng: latLon!.lon
-									}}
-									zoom={11}
-								></GoogleMapReact>
+								<ClubMap latlon={latLon} title={name} />
 							</div>
 						)}
 					</div>

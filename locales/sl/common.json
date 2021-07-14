@@ -1,4 +1,10 @@
 {
-    "home": "Domov",
-    "map": "Zemljevid"
+    "paths": {
+        "home": "Domov",
+        "map": "Zemljevid",
+        "auth": {
+            "signin": "Prijavi se",
+            "signout": "Odjavi se"
+        }
+    }
 }

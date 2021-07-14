@@ -1,4 +1,10 @@
 {
-    "home": "Home",
-    "map": "Map"
+    "paths": {
+        "home": "Home",
+        "map": "Map",
+        "auth": {
+            "signin": "Sign in",
+            "signout": "Sign out"
+        }
+    }
 }

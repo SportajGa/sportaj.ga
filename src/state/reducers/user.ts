@@ -18,7 +18,7 @@ export const initialState: UserState = {
 				height: 128,
 				width: 128,
 				is_silhouette: false,
-				url: ''
+				url: 'https://sportaj.ga/logo-transparent.png'
 			}
 		}
 	},
@@ -48,6 +48,7 @@ export const userSlice = createSlice({
 
 export const { setProfile, setLoggedIn, toggleLoggedIn, reset } = userSlice.actions;
 
+export const selectUserProfile = (state: RootState): Profile => state.user.profile;
 export const selectLoggedIn = (state: RootState): boolean => state.user.loggedIn;
 
 export default userSlice.reducer;

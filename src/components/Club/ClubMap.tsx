@@ -12,9 +12,10 @@ export interface LatLon {
 export interface ClubMapProps {
 	latlon?: LatLon;
 	title: string;
+	mapboxKey: string;
 }
 
-const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
+const ClubMap: React.FC<ClubMapProps> = ({ latlon, title, mapboxKey }) => {
 	const [viewport, setViewport] = useState({
 		latitude: latlon?.latitude,
 		longitude: latlon?.longitude,
@@ -25,7 +26,7 @@ const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 		<>
 			<ReactMapGL
 				{...viewport}
-				mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAP_TOKEN}
+				mapboxApiAccessToken={mapboxKey}
 				mapStyle="mapbox://styles/mapbox/streets-v11"
 				width="100%"
 				height="100%"

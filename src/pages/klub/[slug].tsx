@@ -11,6 +11,7 @@ import { allClubSlugs } from 'core/clubs';
 import Interweave from 'interweave';
 import type { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
+import getConfig from 'next/config';
 import { useRouter } from 'next/dist/client/router';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -29,6 +30,8 @@ const ClubMap = dynamic(() => import('components/Club/ClubMap'), { ssr: false })
 const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, injections }) => {
 	const router = useRouter();
 	const [latLon, setLatLon] = useState<LatLon>();
+
+	const { publicRuntimeConfig } = getConfig();
 
 	useEffect(() => {
 		if (location) {
@@ -71,7 +74,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 						)}
 						{location && latLon && (
 							<div className="h-96">
-								<ClubMap latlon={latLon} title={name} />
+								<ClubMap latlon={latLon} title={name} mapboxKey={publicRuntimeConfig.mapboxKey} />
 							</div>
 						)}
 					</div>

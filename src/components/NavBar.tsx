@@ -1,10 +1,10 @@
 import { faBars, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Disclosure, Menu } from '@headlessui/react';
-import { signIn } from 'next-auth/client';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { signIn, signOut } from 'next-auth/client';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Else, If, Then, Unless } from 'react-if';
 import { useSelector } from 'react-redux';
 import { selectLoggedIn, selectUserProfile } from 'state/reducers/user';
@@ -68,6 +68,32 @@ const NavBar: React.FC = () => {
 																<FontAwesomeIcon icon={faChevronDown} className="self-center ml-2" />
 															</Menu.Button>
 														</div>
+														<Transition
+															show={open}
+															as={Fragment}
+															enter="transition ease-out duration-100"
+															enterFrom="transform opacity-0 scale-95"
+															enterTo="transform opacity-100 scale-100"
+															leave="transition ease-in duration-75"
+															leaveFrom="transform opacity-100 scale-100"
+															leaveTo="transform opacity-0 scale-95"
+														>
+															<Menu.Items
+																static
+																className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+															>
+																<Menu.Item>
+																	<div className="py-1">
+																		<button
+																			onClick={() => void signOut()}
+																			className="block w-full px-2 py-1 text-sm select-none cursor-pointer duration-150"
+																		>
+																			{t('paths.auth.signout')}
+																		</button>
+																	</div>
+																</Menu.Item>
+															</Menu.Items>
+														</Transition>
 													</>
 												)}
 											</Menu>

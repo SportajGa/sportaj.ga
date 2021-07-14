@@ -21,6 +21,7 @@ const NavBar: React.FC = () => {
 	const status = useSelector(selectLoggedIn);
 	const profile = useSelector(selectUserProfile);
 
+	// TODO: tidy up
 	let imageURL = profile.picture.data.url;
 	const { hostname, searchParams } = new URL(imageURL);
 	if (hostname === 'platform-lookaside.fbsbx.com') {

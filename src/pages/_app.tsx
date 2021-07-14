@@ -16,6 +16,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { store } from 'state';
 import 'styles/_App.css';
 import 'react-tippy/dist/tippy.css';
+import 'react-placeholder/lib/reactPlaceholder.css';
 
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import AuthTrack from 'components/auth/AuthTrack';

@@ -15,6 +15,7 @@ import { useRouter } from 'next/dist/client/router';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
+import ReactPlaceholder from 'react-placeholder/lib';
 
 export interface KlubProps {
 	name: string;
@@ -24,7 +25,14 @@ export interface KlubProps {
 	injections: Pick<ClubInjections, 'head' | 'pageEnd'> | null;
 }
 
-const ClubMap = dynamic(() => import('components/Club/ClubMap'), { ssr: false });
+const ClubMap = dynamic(() => import('components/Club/ClubMap'), {
+	ssr: false,
+	loading: () => (
+		<ReactPlaceholder showLoadingAnimation={true} ready={false} type="rect">
+			.
+		</ReactPlaceholder>
+	)
+});
 
 const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, injections }) => {
 	const router = useRouter();

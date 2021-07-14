@@ -22,9 +22,6 @@ const config = {
             }
         ];
     },
-	publicRuntimeConfig: {
-		mapboxKey: process.env.MAP_TOKEN
-	},
     images: {
         domains: [
             'sportaj.ga'

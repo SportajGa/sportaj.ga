@@ -32,7 +32,7 @@ const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 				onViewportChange={(viewport: unknown) => setViewport(viewport as any)}
 			>
 				{latlon?.latitude && latlon?.longitude ? (
-					<Marker latitude={latlon.latitude} longitude={latlon.longitude}>
+					<Marker latitude={latlon.latitude} longitude={latlon.longitude} offsetLeft={-10} offsetTop={-2}>
 						<Tooltip title={title}>
 							<FontAwesomeIcon icon={faBasketballBall} className="text-red-600" size="2x" />
 						</Tooltip>

@@ -45,7 +45,7 @@ const NavBar: React.FC = () => {
 									</div>
 								</div>
 								<div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
-									<div className="w-full hidden lg:block lg:ml-6 content-center">
+									<div className="w-full hidden md:block md:ml-6 content-center">
 										<div className="flex space-x-4 justify-end">
 											<button onClick={() => void signIn()}>
 												<span className="px-3 py-2 duration-150 text-sm font-medium select-none cursor-pointer rounded-md">

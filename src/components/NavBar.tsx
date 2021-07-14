@@ -1,6 +1,8 @@
 import { faBars, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
+import NavBarItem from 'components/NavBarItem';
+import { FacebookPictureProxy } from 'core/constants';
 import { signIn, signOut } from 'next-auth/client';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
@@ -8,7 +10,6 @@ import React, { Fragment } from 'react';
 import { Else, If, Then, Unless } from 'react-if';
 import { useSelector } from 'react-redux';
 import { selectLoggedIn, selectUserProfile } from 'state/reducers/user';
-import NavBarItem from 'components/NavBarItem';
 
 // Based on https://tailwindui.com/components/application-ui/navigation/navbars
 const NavBar: React.FC = () => {
@@ -19,6 +20,14 @@ const NavBar: React.FC = () => {
 
 	const status = useSelector(selectLoggedIn);
 	const profile = useSelector(selectUserProfile);
+
+	let imageURL = profile.picture.data.url;
+	const { hostname, searchParams } = new URL(imageURL);
+	if (hostname === 'platform-lookaside.fbsbx.com') {
+		imageURL = `${FacebookPictureProxy}?asid=${searchParams.get('asid')}&height=${searchParams.get('height')}&width=${searchParams.get(
+			'width'
+		)}&ext=${searchParams.get('ext')}&hash=${searchParams.get('hash')}`;
+	}
 
 	return (
 		<div className="w-full fixed z-50">
@@ -59,11 +68,7 @@ const NavBar: React.FC = () => {
 														<div>
 															<Menu.Button className="flex text-sm rounded-full focus:outline-none">
 																<span className="sr-only">Open User Menu</span>
-																<img
-																	className="h-8 w-8 rounded-full"
-																	src={profile.picture.data.url}
-																	alt={`${profile.name} Avatar`}
-																/>
+																<img className="h-8 w-8 rounded-full" src={imageURL} alt={`${profile.name} Avatar`} />
 																<p className="self-center hidden lg:block ml-2">{profile.name}</p>
 																<FontAwesomeIcon icon={faChevronDown} className="self-center ml-2" />
 															</Menu.Button>

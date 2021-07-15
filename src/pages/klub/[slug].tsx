@@ -87,7 +87,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 					</div>
 					<div className="w-full shadow-lg md:pl-2 md:w-4/6">
 						<figure className="px-10 pt-10">
-							<img className="w-full h-auto rounded-md" src="https://sportaj.ga/media/header_slike/5_qfdjGtZ.webp" />
+							<img className="w-full h-auto rounded-md" src="https://storage.googleapis.com/sportaj-cdn/headers/5.jpg" />
 						</figure>
 						<div className="card px-10">
 							<div className="card-body">

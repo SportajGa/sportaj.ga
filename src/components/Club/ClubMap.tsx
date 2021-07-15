@@ -30,8 +30,9 @@ const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 		<>
 			<ReactMapGL
 				{...viewport}
+				// TODO: fetch from API endpoint
 				mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
-				mapStyle="mapbox://styles/mapbox/streets-v11"
+				mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2"
 				width="100%"
 				height="100%"
 				onViewportChange={(viewport: unknown) => setViewport(viewport as any)}

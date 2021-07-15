@@ -11,7 +11,7 @@ const ClubAddress: React.FC<ClubAddressProps> = ({ address, className }) => {
 	return (
 		<section className={`flex justify-center p-1 ${className ? className : ''}`}>
 			<FontAwesomeIcon icon={faMapPin} />{' '}
-			<span id="club-address" className="pl-4">
+			<span id="club-address" className="pl-2">
 				{address}
 			</span>
 		</section>

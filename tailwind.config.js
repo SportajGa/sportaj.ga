@@ -6,6 +6,10 @@ module.exports = {
 			colors: {
 				...require('daisyui/colors'),
 				fbBlue: '#4267B2'
+			},
+			height: {
+				160: '40rem',
+				192: '48rem'
 			}
 		},
 		container: {

@@ -4,9 +4,12 @@ import React from 'react';
 export interface ClubLogoProps {
 	name: string | null;
 	logo: string | null;
+	height?: number;
+	width?: number;
+	round?: boolean;
 }
 
-const ClubLogo: React.FC<ClubLogoProps> = ({ logo, name }) => {
+const ClubLogo: React.FC<ClubLogoProps> = ({ logo, name, height, width, round }) => {
 	return (
 		<img
 			id="club-logo"
@@ -14,8 +17,8 @@ const ClubLogo: React.FC<ClubLogoProps> = ({ logo, name }) => {
 			// eslint-disable-next-line no-negated-condition
 			alt={!logo ? 'Default club logo' : !name ? 'Club logo' : `${name} logo`}
 			className="rounded-xl m-auto"
-			height="128"
-			width="128"
+			height={height ?? 128}
+			width={width ?? 128}
 		/>
 	);
 };

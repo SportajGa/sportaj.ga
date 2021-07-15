@@ -7,11 +7,11 @@ export interface ClubDescriptionProps {
 const ClubDescription: React.FC<ClubDescriptionProps> = ({ description }) => {
 	return (
 		<>
-			{description ? (
+			{description && (
 				<p id="club-description" className="text-justify">
 					{description}
 				</p>
-			) : null}
+			)}
 		</>
 	);
 };

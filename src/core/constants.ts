@@ -3,4 +3,5 @@ export const BASE_URL = `https://${BASE_ADDRESS}`;
 
 export const FacebookPictureProxy = 'https://fbsbx-proxy.quantumly.workers.dev/';
 
+export const ClubLogoDefault = 'https://sportaj.ga/logo.png';
 export const HostAddress = 'Srednja elektro-računalniška šola Maribor, Smetanova ulica 6, 2000 Maribor, Slovenia';

@@ -3,6 +3,7 @@ import type { Club, ClubInjections } from '@sportajga/api';
 import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
+import ClubLogo from 'components/Club/ClubLogo';
 import type { LatLon } from 'components/Club/ClubMap';
 import Loading from 'components/Loading';
 import Offset from 'components/Offset';
@@ -22,6 +23,7 @@ export interface KlubProps {
 	description: string | null;
 	location: string | null;
 	locationFriendly: string | null;
+	logo: string | null;
 	injections: Pick<ClubInjections, 'head' | 'pageEnd'> | null;
 }
 
@@ -34,7 +36,7 @@ const ClubMap = dynamic(() => import('components/Club/ClubMap'), {
 	)
 });
 
-const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, injections }) => {
+const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, logo, injections }) => {
 	const router = useRouter();
 	const [latLon, setLatLon] = useState<LatLon>();
 
@@ -68,7 +70,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 				<div className="flex flex-wrap">
 					<div className="content-center shadow-lg w-2/6 hidden md:pr-2 md:block">
 						<figure className="px-10 pt-10">
-							<img src="https://sportaj.ga/media/klub_logo/5_1.webp" className="rounded-xl m-auto" height="128" width="128" />
+							<ClubLogo logo={logo} name={name} />
 						</figure>
 						{locationFriendly && (
 							<div className="card">
@@ -116,6 +118,7 @@ const GET_CLUB = gql`
 			description
 			location
 			locationFriendly
+			logo
 			injections {
 				head
 				pageEnd
@@ -126,7 +129,7 @@ const GET_CLUB = gql`
 
 export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async ({ params }) => {
 	const { data } = await client.query<GraphQLResponse<'club'>>({ query: GET_CLUB, variables: { slug: params?.slug } });
-	const club = data.club as Pick<Club, 'name' | 'description' | 'location' | 'locationFriendly' | 'injections'>;
+	const club = data.club as Pick<Club, 'name' | 'description' | 'location' | 'locationFriendly' | 'logo' | 'injections'>;
 
 	return {
 		props: {
@@ -134,6 +137,7 @@ export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async
 			description: club.description ?? null,
 			location: club.location ?? null,
 			locationFriendly: club.locationFriendly ?? null,
+			logo: club.logo ?? null,
 			injections: club.injections ?? null
 		},
 		revalidate: 120

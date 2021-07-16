@@ -6,10 +6,9 @@ export interface ClubLogoProps {
 	logo: string | null;
 	height?: number;
 	width?: number;
-	round?: boolean;
 }
 
-const ClubLogo: React.FC<ClubLogoProps> = ({ logo, name, height, width, round }) => {
+const ClubLogo: React.FC<ClubLogoProps> = ({ logo, name, height, width }) => {
 	return (
 		<img
 			id="club-logo"

@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
 
 	return (
 		<div className="w-full fixed z-50">
-			<Disclosure as="nav" className="mt-4 mx-4 rounded-lg shadow-xl bg-gray-400 text-white">
+			<Disclosure as="nav" className="mt-4 mx-4 rounded-md shadow-xl bg-bittersweet text-white">
 				{({ open }) => (
 					<>
 						<div className="w-full mx-auto px-2 md:px-6 xl:px-8">

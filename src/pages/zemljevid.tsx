@@ -34,7 +34,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = ({ clubs }) => {
 							{clubs.map((club) => (
 								<li className="list-none py-1" key={club.slug}>
 									<Link href={`klub/${club.slug}`}>
-										<div className="p-4 mx-auto bg-white border border-gray-300 rounded-xl flex items-center space-x-4 select-none cursor-pointer shadow-xl max-w-sm">
+										<div className="p-4 mx-auto bg-white rounded-xl flex items-center space-x-4 select-none cursor-pointer shadow-xl max-w-sm">
 											<figure className="flex-shrink-0">
 												<div className="h-12 w-12 relative">
 													<ClubLogo logo={club.logo ?? null} name={club.name ?? null} />

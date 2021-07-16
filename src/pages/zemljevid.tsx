@@ -1,17 +1,15 @@
 import { gql } from '@apollo/client';
 import type { Club } from '@sportajga/api';
-import ClubAddress from 'components/Club/ClubAddress';
-import ClubLogo from 'components/Club/ClubLogo';
+import MapClub from 'components/Map/MapClub';
 import Offset from 'components/Offset';
 import { client, GraphQLResponse } from 'core/apiClient';
 import type { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 import React from 'react';
 import ReactPlaceholder from 'react-placeholder/lib';
 
 export interface ZemljevidProps {
-	clubs: AllClubs;
+	clubs: AllClubsMap;
 }
 
 const MapMap = dynamic(() => import('components/Map/MapMap'), {
@@ -32,21 +30,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = ({ clubs }) => {
 					<div className="content-center w-2/5 px-4">
 						<ul>
 							{clubs.map((club) => (
-								<li className="list-none py-1" key={club.slug}>
-									<Link href={`klub/${club.slug}`}>
-										<div className="p-4 mx-auto bg-white rounded-xl flex items-center space-x-4 select-none cursor-pointer shadow-xl max-w-sm">
-											<figure className="flex-shrink-0">
-												<div className="h-12 w-12 relative">
-													<ClubLogo logo={club.logo ?? null} name={club.name ?? null} />
-												</div>
-											</figure>
-											<div>
-												<div className="text-xl text-center font-medium text-black">{club.name}</div>
-												{club.locationFriendly && <ClubAddress address={club.locationFriendly} className="prose-sm" />}
-											</div>
-										</div>
-									</Link>
-								</li>
+								<MapClub key={club.slug} club={club} />
 							))}
 						</ul>
 					</div>
@@ -72,11 +56,12 @@ const GET_ALL_CLUBS = gql`
 	}
 `;
 
-type AllClubs = Omit<readonly Pick<Club, 'name' | 'slug' | 'logo' | 'locationFriendly'>[], '__typename'>;
+export type CMap = Pick<Club, 'name' | 'slug' | 'logo' | 'locationFriendly'>;
+export type AllClubsMap = Omit<readonly CMap[], '__typename'>;
 
 export const getStaticProps: GetStaticProps<ZemljevidProps> = async () => {
 	const { data } = await client.query<GraphQLResponse<'allClubs'>>({ query: GET_ALL_CLUBS });
-	const clubs = data.allClubs as AllClubs;
+	const clubs = data.allClubs as AllClubsMap;
 
 	return {
 		props: {

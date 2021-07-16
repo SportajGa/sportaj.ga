@@ -17,7 +17,7 @@ const MapMap: React.FC<MapMapProps> = () => {
 
 	const { data } = useSWR<GeoJSON.FeatureCollection<GeoJSON.Geometry>>('/api/data/clubs', fetcher, {
 		refreshWhenHidden: false,
-		refreshInterval: 5000
+		refreshInterval: 10000
 	});
 
 	return (

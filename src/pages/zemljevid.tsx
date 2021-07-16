@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps<ZemljevidProps> = async () => {
 		props: {
 			clubs
 		},
-		revalidate: 15
+		revalidate: 30
 	};
 };
 

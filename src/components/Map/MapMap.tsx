@@ -1,13 +1,23 @@
+import axios from 'axios';
+import type * as GeoJSON from 'geojson';
 import React, { useState } from 'react';
-import ReactMapGL, { FullscreenControl, GeolocateControl } from 'react-map-gl';
+import ReactMapGL, { FullscreenControl, GeolocateControl, Layer, Source } from 'react-map-gl';
+import useSWR from 'swr';
 
 export interface MapMapProps {}
+
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const MapMap: React.FC<MapMapProps> = () => {
 	const [viewport, setViewport] = useState({
 		latitude: 46.55472,
 		longitude: 15.64667,
 		zoom: 13
+	});
+
+	const { data } = useSWR<GeoJSON.FeatureCollection<GeoJSON.Geometry>>('/api/data/clubs', fetcher, {
+		refreshWhenHidden: false,
+		refreshInterval: 5000
 	});
 
 	return (
@@ -23,6 +33,16 @@ const MapMap: React.FC<MapMapProps> = () => {
 			>
 				<FullscreenControl className="right-16 top-4" />
 				<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
+				<Source id="clubs" type="geojson" data={data}>
+					<Layer
+						id="point"
+						type="circle"
+						paint={{
+							'circle-radius': 10,
+							'circle-color': '#007cbf'
+						}}
+					/>
+				</Source>
 			</ReactMapGL>
 		</>
 	);

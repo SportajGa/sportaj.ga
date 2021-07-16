@@ -1,20 +1,8 @@
 import { gql } from '@apollo/client';
 import type { Club } from '@sportajga/api';
 import { client, GraphQLResponse } from 'core/apiClient';
+import type * as GeoJSON from 'geojson';
 import type { NextApiRequest, NextApiResponse } from 'next';
-
-export interface Feature {
-	type: 'Feature';
-	properties?: Record<string, unknown>;
-	geometry: FeatureGeometry;
-}
-
-export interface FeatureGeometry {
-	type: string;
-	coordinates: FeatureGeometryCoordinates;
-}
-
-export type FeatureGeometryCoordinates = [latitude: number, longitude: number, altitude: number];
 
 const GET_ALL_CLUBS_GEO = gql`
 	query AllClubsFullGeo {
@@ -32,14 +20,17 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
 	const { data } = await client.query<GraphQLResponse<'allClubs'>>({ query: GET_ALL_CLUBS_GEO });
 	const clubs = data.allClubs as AllClubsGeo;
 
-	const features: Feature[] = [];
+	const features: GeoJSON.Feature<GeoJSON.Geometry>[] = [];
 
 	for (const club of clubs) {
+		const [latitude, longitude] = club.location.split(',').map(Number);
+
 		features.push({
 			type: 'Feature',
+			properties: null,
 			geometry: {
 				type: 'Point',
-				coordinates: [...(club.location.split(',').map(Number) as [number, number]), 0]
+				coordinates: [longitude, latitude, 0]
 			}
 		});
 	}
@@ -47,6 +38,6 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
 	res.status(200).json({
 		type: 'FeatureCollection',
 		features
-	});
+	} as GeoJSON.FeatureCollection<GeoJSON.Geometry>);
 	res.end();
 };

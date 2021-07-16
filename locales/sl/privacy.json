@@ -29,15 +29,15 @@
                 "body": "The Company is based in Slovenia, the Services provided and the data is hosted on the servers at {{HostAddress}}. No matter where you are located you consent to processing and transferring of your information in and to Germany, Slovenia, and other countries. The laws of Germany, Slovenia, and other countries governing data collection and use may not be as comprehensive or protective as the laws of the country where you live."
             },
             "children": {
-                "title": "Children",
+                "title": "Otroci",
                 "body": "Our Services are for users age 13 and over and we do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian of a child under the age of 13 and believe he or she has disclosed personal information to us please contact us at <0>{{email}}</0>. Note: In some countries, the age of digital consent is older than 13. If you are in those countries, you must be at least that age to use the Services. For example, for residents of the EEA, where processing of personal information is based on consent, SportajGa will not knowingly engage in that processing for users under the age of consent established by applicable data protection law. If we learn that we are engaged in that processing with such users, we will halt such processing and will take reasonable measures to promptly remove applicable information from our records."
             },
             "use": {
-                "title": "Use of Information",
+                "title": "Uporaba informacij",
                 "body": "We use the information you provide in a manner that is consistent with this Privacy Policy. If you provide information for a certain reason, we may use the information in connection with the reason for which it was provided. For instance, if you contact us by email, we will use the information you provide to answer your question or resolve your problem. Also, if you provide information in order to obtain access to the Services, we will use your information to provide you with access to such services and to monitor your use of such services. The Company and its subsidiaries and affiliates (the “Related Companies”) may also use your information collected through the Services to help us improve the content and functionality of the Services, to better understand our users and to improve the Services. The Company and its affiliates may use this information to contact you in the future to tell you about services we believe will be of interest to you. If we do so, each marketing communication we send you will contain instructions permitting you to \"opt-out\" of receiving future marketing communications. In addition, if at any time you wish not to receive any future marketing communications or you wish to have your name deleted from our mailing lists, please contact us as indicated below."
             },
             "security": {
-                "title": "Security",
+                "title": "Varnost",
                 "body": "We take reasonable steps to protect the information provided via the Services from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. However, no Internet or email transmission is ever fully secure or error free. In particular, email sent to or from the Services may not be secure. Therefore, you should take special care in deciding what information you send to us via email. Please keep this in mind when disclosing any information via the Internet."
             },
             "rights": {
@@ -66,7 +66,7 @@
                 "title": "Third Parties"
             },
             "policy": {
-                "title": "Changes to Policy",
+                "title": "Spremembe pravilnika",
                 "body": "We reserve the right to update or modify this Privacy Policy at any time and from time to time without prior notice. Please review this policy periodically, and especially before you provide any information. This Privacy Policy was last updated on the date indicated above. Your continued use of the Services after any changes or revisions to this Privacy Policy shall indicate your agreement with the terms of such revised Privacy Policy."
             },
             "contact": {

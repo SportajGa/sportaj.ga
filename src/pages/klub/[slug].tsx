@@ -66,26 +66,29 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 			) : null}
 
 			<Offset />
-			<div className="container">
+			<div className="container pb-8">
 				<div className="flex flex-wrap">
-					<div className="content-center shadow-lg w-2/6 hidden md:pr-2 md:block">
-						<figure className="px-10 pt-10">
-							<ClubLogo logo={logo} name={name} />
-						</figure>
-						{locationFriendly && (
-							<div className="card">
-								<div className="card-body">
-									<ClubAddress address={locationFriendly} />
+					<div className="content-center w-7/24 hidden md:block">
+						<div className="bg-white rounded-md shadow-lg">
+							<figure className="px-10 pt-10">
+								<ClubLogo logo={logo} name={name} />
+							</figure>
+							{locationFriendly && (
+								<div className="card">
+									<div className="card-body">
+										<ClubAddress address={locationFriendly} />
+									</div>
 								</div>
-							</div>
-						)}
-						{location && latLon && (
-							<div className="h-96">
-								<ClubMap latlon={latLon} title={name} />
-							</div>
-						)}
+							)}
+							{location && latLon && (
+								<div className="h-96 p-4">
+									<ClubMap latlon={latLon} title={name} />
+								</div>
+							)}
+						</div>
 					</div>
-					<div className="w-full shadow-lg md:pl-2 md:w-4/6">
+					<div className="md:w-1/24" />
+					<div className="w-full bg-white rounded-md shadow-lg md:w-15/24">
 						<figure className="px-10 pt-10">
 							<img className="w-full h-auto rounded-md" src="https://storage.googleapis.com/sportaj-cdn/headers/5.jpg" />
 						</figure>

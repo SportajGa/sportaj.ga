@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
 					</div>
 					<div className="col-auto inset-y-0 right-0">
 						<p className={`${rowPadding}`}>
-							<Link href="privacy">Privacy</Link> {/* TODO: Translation */}
+							<Link href="/privacy">Privacy</Link> {/* TODO: Translation */}
 						</p>
 					</div>
 				</div>

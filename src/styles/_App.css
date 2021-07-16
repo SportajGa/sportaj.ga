@@ -5,5 +5,17 @@
 @layer base {
     body {
         @apply min-h-screen;
+        -webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
     }
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 10px;
+    @apply bg-isabelline;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	@apply bg-red-munsell;
 }

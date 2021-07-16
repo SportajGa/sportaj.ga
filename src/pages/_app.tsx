@@ -20,6 +20,7 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import AuthTrack from 'components/auth/AuthTrack';
+import Footer from 'components/Footer';
 config.autoAddCss = false;
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
@@ -41,8 +42,17 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 							</Head>
 							<DefaultSeo {...DefaultSEOProps} />
 
-							<NavBar />
-							<Component {...pageProps} />
+							<div className="flex flex-col h-screen justify-between bg-isabelline">
+								<header>
+									<NavBar />
+								</header>
+								<main className="mb-auto bg-isabelline">
+									<Component {...pageProps} />
+								</main>
+								<footer>
+									<Footer />
+								</footer>
+							</div>
 						</AuthTrack>
 					</NextAuthProvider>
 				</ReduxProvider>

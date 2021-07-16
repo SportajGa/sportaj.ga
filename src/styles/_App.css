@@ -4,6 +4,6 @@
 
 @layer base {
     body {
-        @apply bg-isabelline min-h-screen;
+        @apply min-h-screen;
     }
 }

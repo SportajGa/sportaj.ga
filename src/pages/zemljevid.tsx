@@ -25,9 +25,9 @@ const ZemljevidPage: NextPage<ZemljevidProps> = ({ clubs }) => {
 	return (
 		<>
 			<Offset />
-			<div className="container">
-				<div className="flex">
-					<div className="content-center w-2/5 px-4">
+			<div className="container pb-8 px-4 md:px-0">
+				<div className="flex flex-wrap md:flex-nowrap">
+					<div className="content-center mx-auto md:mx-0 w-full md:w-2/5 px-0 md:px-4">
 						<ul>
 							{clubs.map((club) => (
 								<MapClub key={club.slug} club={club} />
@@ -35,7 +35,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = ({ clubs }) => {
 						</ul>
 					</div>
 					<div className="w-full px-4">
-						<div className="rounded-lg h-160">
+						<div className="rounded-lg h-96 md:h-160">
 							<MapMap />
 						</div>
 					</div>

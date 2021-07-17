@@ -12,6 +12,6 @@ export async function generateSitemap(srcPath: string) {
 		pagesDirectory: path.join(srcPath, 'pages'),
 		targetDirectory: path.join(srcPath, 'public'),
 		nextConfigPath: path.join(srcPath, 'next.config.js'),
-		ignoredPaths: ['/klub/[slug]']
+		ignoredPaths: ['/klub/[slug]', '/api/', '/auth/signin']
 	});
 }

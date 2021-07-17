@@ -1,6 +1,7 @@
 import Element from 'components/Editor/Element';
 import Leaf from 'components/Editor/Leaf';
 import Offset from 'components/Offset';
+import { toggleMark } from 'core/editor';
 import type { NextPage } from 'next';
 import React, { useCallback, useMemo, useState } from 'react';
 import { createEditor, Descendant } from 'slate';
@@ -17,9 +18,24 @@ const EditorPage: NextPage = () => {
 	return (
 		<>
 			<Offset />
-			<div>
+			<div className="container">
 				<Slate editor={editor} value={value} onChange={(value) => setValue(value)}>
-					<Editable renderElement={renderElement} renderLeaf={renderLeaf} placeholder="Enter some rich text…" />
+					<div className="grid grid-rows-2 grid-cols-1">
+						<div className="flex">
+							<button
+								onMouseDown={(event) => {
+									toggleMark(editor, 'bold');
+
+									event.preventDefault();
+								}}
+							>
+								Bold
+							</button>
+						</div>
+						<div>
+							<Editable renderElement={renderElement} renderLeaf={renderLeaf} placeholder="Enter some rich text…" />
+						</div>
+					</div>
 				</Slate>
 			</div>
 		</>

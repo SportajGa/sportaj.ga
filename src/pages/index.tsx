@@ -4,7 +4,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import path from 'path';
 import React from 'react';
 
-const Index: NextPage = () => {
+const IndexPage: NextPage = () => {
 	return (
 		<>
 			<Offset />
@@ -21,4 +21,4 @@ export const getStaticProps: GetStaticProps = async () => {
 	return { props: {} };
 };
 
-export default Index;
+export default IndexPage;

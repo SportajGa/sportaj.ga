@@ -1,53 +1,11 @@
+import Element from 'components/Editor/Element';
+import Leaf from 'components/Editor/Leaf';
 import Offset from 'components/Offset';
 import type { NextPage } from 'next';
 import React, { useCallback, useMemo, useState } from 'react';
 import { createEditor, Descendant } from 'slate';
 import { withHistory } from 'slate-history';
-import { Editable, RenderElementProps, RenderLeafProps, Slate, withReact } from 'slate-react';
-
-const Element: React.FC<RenderElementProps> = ({ attributes, children, element }) => {
-	// @ts-expect-error Not sure if it's breaking so lets wait
-	switch (element.type) {
-		case 'block-quote':
-			return <blockquote {...attributes}>{children}</blockquote>;
-		case 'bulleted-list':
-			return <ul {...attributes}>{children}</ul>;
-		case 'heading-one':
-			return <h1 {...attributes}>{children}</h1>;
-		case 'heading-two':
-			return <h2 {...attributes}>{children}</h2>;
-		case 'list-item':
-			return <li {...attributes}>{children}</li>;
-		case 'numbered-list':
-			return <ol {...attributes}>{children}</ol>;
-		default:
-			return <p {...attributes}>{children}</p>;
-	}
-};
-
-const Leaf: React.FC<RenderLeafProps> = ({ attributes, children, leaf }) => {
-	// @ts-expect-error Not sure if it's breaking so lets wait
-	if (leaf.bold) {
-		children = <strong>{children}</strong>;
-	}
-
-	// @ts-expect-error Not sure if it's breaking so lets wait
-	if (leaf.code) {
-		children = <code>{children}</code>;
-	}
-
-	// @ts-expect-error Not sure if it's breaking so lets wait
-	if (leaf.italic) {
-		children = <em>{children}</em>;
-	}
-
-	// @ts-expect-error Not sure if it's breaking so lets wait
-	if (leaf.underline) {
-		children = <u>{children}</u>;
-	}
-
-	return <span {...attributes}>{children}</span>;
-};
+import { Editable, Slate, withReact } from 'slate-react';
 
 const EditorPage: NextPage = () => {
 	const renderElement = useCallback((props) => <Element {...props} />, []);
@@ -68,7 +26,7 @@ const EditorPage: NextPage = () => {
 	);
 };
 
-const initialValue = [
+const initialValue: Descendant[] = [
 	{
 		type: 'paragraph',
 		children: [

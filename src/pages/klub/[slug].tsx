@@ -66,7 +66,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 			) : null}
 
 			<Offset />
-			<div className="container pb-8">
+			<div className="container pb-8 px-4 md:px-0">
 				<div className="flex flex-wrap">
 					<div className="content-center w-7/24 hidden md:block">
 						<div className="bg-white rounded-md shadow-lg">

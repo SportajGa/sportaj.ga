@@ -5,6 +5,8 @@ import Code from './Leafs/Code';
 import Italic from './Leafs/Italic';
 import Underline from './Leafs/Underline';
 
+export type LeafType = 'bold' | 'code' | 'italic' | 'underline';
+
 const Leaf: React.FC<RenderLeafProps> = ({ attributes, children, leaf }) => {
 	if (leaf.bold) {
 		children = <Bold>{children}</Bold>;

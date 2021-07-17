@@ -9,6 +9,7 @@ import ListItem from './Elements/ListItem';
 import NumberedList from './Elements/NumberedList';
 import P from './Elements/P';
 
+export const LIST_TYPES = ['numbered-list', 'bulleted-list'];
 export type ElementType =
 	| 'block-quote'
 	| 'bulleted-list'

@@ -1,6 +1,6 @@
 {
     "paths": {
-        "home": "Dom",
+        "home": "Domov",
         "map": "Zemljevid",
         "auth": {
             "signin": "Prijavi se",

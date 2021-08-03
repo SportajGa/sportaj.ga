@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import type { Club, ClubInjections } from '@sportajga/api';
+import type { Club } from '@sportajga/mappings';
 import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
@@ -9,12 +9,10 @@ import Loading from 'components/Loading';
 import Offset from 'components/Offset';
 import { client, GraphQLResponse } from 'core/apiClient';
 import { allClubSlugs } from 'core/clubs';
-import Interweave from 'interweave';
 import type { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import ReactPlaceholder from 'react-placeholder/lib';
 
@@ -24,7 +22,6 @@ export interface KlubProps {
 	location: string | null;
 	locationFriendly: string | null;
 	logo: string | null;
-	injections: Pick<ClubInjections, 'head' | 'pageEnd'> | null;
 }
 
 const ClubMap = dynamic(() => import('components/Club/ClubMap'), {
@@ -36,7 +33,7 @@ const ClubMap = dynamic(() => import('components/Club/ClubMap'), {
 	)
 });
 
-const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, logo, injections }) => {
+const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, logo }) => {
 	const router = useRouter();
 	const [latLon, setLatLon] = useState<LatLon>();
 
@@ -58,13 +55,6 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 				title={name}
 				description={description ?? undefined}
 			/>
-
-			{injections && injections.head ? (
-				<Head>
-					<Interweave content={injections.head} />
-				</Head>
-			) : null}
-
 			<Offset />
 			<div className="container pb-8 px-4 md:px-0">
 				<div className="flex flex-wrap">
@@ -108,40 +98,34 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 						</div>
 					</div>
 				</div>
-				{injections && injections.pageEnd ? <Interweave content={injections.pageEnd} /> : null}
 			</div>
 		</>
 	);
 };
 
 const GET_CLUB = gql`
-	query Club($slug: String!) {
-		club(slug: $slug) {
+	query Club($slug: citext!) {
+		club(where: { slug: { _eq: $slug } }) {
 			name
 			description
 			location
-			locationFriendly
+			location_friendly
 			logo
-			injections {
-				head
-				pageEnd
-			}
 		}
 	}
 `;
 
 export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async ({ params }) => {
 	const { data } = await client.query<GraphQLResponse<'club'>>({ query: GET_CLUB, variables: { slug: params?.slug } });
-	const club = data.club as Pick<Club, 'name' | 'description' | 'location' | 'locationFriendly' | 'logo' | 'injections'>;
+	const club = data.club as Pick<Club, 'name' | 'description' | 'location' | 'location_friendly' | 'logo'>;
 
 	return {
 		props: {
-			name: club.name,
-			description: club.description ?? null,
-			location: club.location ?? null,
-			locationFriendly: club.locationFriendly ?? null,
-			logo: club.logo ?? null,
-			injections: club.injections ?? null
+			name: club.name!,
+			description: club.description!,
+			location: club.location!,
+			locationFriendly: club.location_friendly!,
+			logo: club.logo!
 		},
 		revalidate: 120
 	};

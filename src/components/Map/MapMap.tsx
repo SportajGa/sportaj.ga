@@ -20,7 +20,9 @@ const MapMap: React.FC<MapMapProps> = () => {
 	const viewport = useSelector(selectViewport);
 	const dispatch = useDispatch();
 
-	const { data, loading } = useQuery<GraphQLResponse<'geojson'>>(GET_CLUB_CLUSTERS);
+	const { data, loading } = useQuery<GraphQLResponse<'geojson'>>(GET_CLUB_CLUSTERS, {
+		pollInterval: 500
+	});
 
 	return (
 		<>

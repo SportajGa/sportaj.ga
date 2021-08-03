@@ -31,6 +31,7 @@
     "@reduxjs/toolkit": "^1.6.0",
     "@sapphire/utilities": "^1.7.0",
     "@sportajga/api": "^0.0.16",
+    "@sportajga/mappings": "^0.0.4",
     "@tailwindcss/typography": "^0.4.0",
     "axios": "^0.21.1",
     "geojson": "^0.5.0",

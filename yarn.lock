@@ -1796,6 +1796,13 @@
     graphql "^15.5.1"
     standard-version "^9.3.0"
 
+"@sportajga/mappings@^0.0.4":
+  version "0.0.4"
+  resolved "https://npm.pkg.github.com/download/@sportajga/mappings/0.0.4/1f4505e96ebfc2008de625c907f57bc9e466b2cb28f3e4383c0ade5459d2dd7d#b62367a48a6f13d8722c3008779ca6c3bca9adce"
+  integrity sha512-QpLWJQ/RBxwMw96AfxBpjcrpgv3q4hwWnCcrQoOb37DTYXGlWC5kIlCl+PeYDeWmCaN0+nPiRvqCPICyrBFRlw==
+  dependencies:
+    graphql "^15.5.1"
+
 "@sqltools/formatter@^1.2.2":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@sqltools/formatter/-/formatter-1.2.3.tgz#1185726610acc37317ddab11c3c7f9066966bd20"

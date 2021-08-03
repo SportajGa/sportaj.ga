@@ -2,7 +2,7 @@ module.exports = {
 	client: {
 		service: {
 			name: 'sportaj-api',
-			url: 'https://api.sportaj.ga'
+			localSchemaFile: './node_modules/@sportajga/mappings/generated/ts/api.graphql'
 		}
 	}
 };

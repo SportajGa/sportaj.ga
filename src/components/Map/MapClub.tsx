@@ -20,7 +20,7 @@ const MapClub: React.FC<MapClubProps> = ({ club }) => {
 					</figure>
 					<div>
 						<div className="text-xl text-center font-medium text-black">{club.name}</div>
-						{club.locationFriendly && <ClubAddress address={club.locationFriendly} className="prose-sm" />}
+						{club.location_friendly && <ClubAddress address={club.location_friendly} className="prose-sm" />}
 					</div>
 				</div>
 			</Link>

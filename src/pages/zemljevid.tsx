@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import type { Club } from '@sportajga/api';
+import type { Club } from '@sportajga/mappings';
 import MapClub from 'components/Map/MapClub';
 import Offset from 'components/Offset';
 import type { GraphQLResponse } from 'core/apiClient';
@@ -10,16 +10,16 @@ import ReactPlaceholder from 'react-placeholder/lib';
 
 export interface ZemljevidProps {}
 
-export type CMap = Pick<Club, 'name' | 'slug' | 'logo' | 'locationFriendly'>;
+export type CMap = Pick<Club, 'name' | 'slug' | 'logo' | 'location_friendly'>;
 export type AllClubsMap = Omit<readonly CMap[], '__typename'>;
 
 const GET_ALL_CLUBS = gql`
 	query AllClubsFull($name: String!) {
-		allClubs(filter: { name: $name }) {
+		club(where: { name: { _ilike: $name } }) {
 			name
 			slug
 			logo
-			locationFriendly
+			location_friendly
 		}
 	}
 `;
@@ -35,7 +35,7 @@ const MapMap = dynamic(() => import('components/Map/MapMap'), {
 
 const ZemljevidPage: NextPage<ZemljevidProps> = () => {
 	const [search, setSearch] = useState('');
-	const { loading, data } = useQuery<GraphQLResponse<'allClubs'>>(GET_ALL_CLUBS, { variables: { name: search } });
+	const { loading, data } = useQuery<GraphQLResponse<'club'>>(GET_ALL_CLUBS, { variables: { name: `%${search}%` } });
 
 	return (
 		<>
@@ -58,7 +58,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = () => {
 							<ReactPlaceholder showLoadingAnimation={true} ready={!loading}>
 								{!loading && (
 									<ul>
-										{data!.allClubs.map((club) => (
+										{data!.club.map((club) => (
 											<MapClub key={club.slug} club={club} />
 										))}
 									</ul>

@@ -55,7 +55,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = () => {
 					</div>
 					<div className="flex flex-wrap md:flex-nowrap">
 						<div className="content-center mx-auto md:mx-0 w-full md:w-2/5 px-0 md:px-4">
-							<ReactPlaceholder showLoadingAnimation={true} ready={!loading && data}>
+							<ReactPlaceholder showLoadingAnimation={true} ready={!loading && data !== undefined}>
 								{!loading && data && (
 									<ul>
 										{data!.club.map((club) => (

@@ -17,7 +17,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 			secret: process.env.JWT_SECRET,
 			maxAge: 30 * 24 * 60 * 60,
 			verificationOptions: {
-				algorithms: ['HS256']
+				algorithms: ['HS512']
 			}
 		},
 		pages: {

@@ -3,7 +3,7 @@ import type { JWT } from 'next-auth/jwt';
 
 export function formHasuraJWTPayload(token?: JWT, _?: User, account?: Account, __?: Profile) {
 	const data = new Map();
-	const prevPayload = token ? (token['https://hasura.io/jwt/claims'] as Record<string, string>) : {};
+	const prevPayload = token && token['https://hasura.io/jwt/claims'] ? (token['https://hasura.io/jwt/claims'] as Record<string, string>) : {};
 
 	console.log('account', account);
 

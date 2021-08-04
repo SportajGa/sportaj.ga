@@ -3,7 +3,8 @@ import type { Account, Profile, User } from 'next-auth';
 import type { JWT } from 'next-auth/jwt';
 
 export function formHasuraJWTPayload(token: JWT, _?: User, account?: Account, __?: Profile) {
-	const data = new Map();
+	// TODO: create type definitions
+	const data = new Map(Object.entries((token['https://hasura.io/jwt/claims'] as Record<string, string> | undefined) ?? {}));
 
 	if (account?.provider === 'facebook') data.set('X-Hasura-User-FB-Id', account.id);
 

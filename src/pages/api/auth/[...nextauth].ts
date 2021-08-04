@@ -25,11 +25,11 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 			signIn: '/auth/signin'
 		},
 		callbacks: {
-			jwt: (token, user, account, profile) => {
+			jwt: (token, user, account, profile, isNewUser) => {
 				// if (account) token.account = account;
 				if (profile) token.profile = profile;
 
-				token['https://hasura.io/jwt/claims'] = formHasuraJWTPayload(user, account, profile);
+				if (isNewUser) token['https://hasura.io/jwt/claims'] = formHasuraJWTPayload(user, account, profile);
 
 				return token;
 			}

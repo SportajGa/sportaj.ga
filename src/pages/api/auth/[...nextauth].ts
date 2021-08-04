@@ -1,3 +1,4 @@
+import { formHasuraJWTPayload } from 'core/hasura';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
@@ -24,9 +25,12 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 			signIn: '/auth/signin'
 		},
 		callbacks: {
-			jwt: (token, _, account, profile) => {
-				if (account) token.account = account;
+			jwt: (token, user, account, profile) => {
+				// if (account) token.account = account;
 				if (profile) token.profile = profile;
+
+				token['https://hasura.io/jwt/claims'] = formHasuraJWTPayload(user, account, profile);
+
 				return token;
 			}
 		}

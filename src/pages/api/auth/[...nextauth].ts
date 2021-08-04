@@ -29,7 +29,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 				// if (account) token.account = account;
 				if (profile) token.profile = profile;
 
-				token['https://hasura.io/jwt/claims'] = formHasuraJWTPayload(token, user, account, profile);
+				token = formHasuraJWTPayload(token, user, account, profile);
 
 				return token;
 			}

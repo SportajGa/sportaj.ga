@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-import type { Club } from '@sportajga/mappings';
 import ClubAddress from 'components/Club/ClubAddress';
 import ClubCalendar from 'components/Club/ClubCalendar';
 import ClubDescription from 'components/Club/ClubDescription';
@@ -17,7 +16,8 @@ import React, { useEffect, useState } from 'react';
 import ReactPlaceholder from 'react-placeholder/lib';
 
 export interface KlubProps {
-	name: string;
+	slug: string | null;
+	name: string | null;
 	description: string | null;
 	location: string | null;
 	locationFriendly: string | null;
@@ -33,7 +33,7 @@ const ClubMap = dynamic(() => import('components/Club/ClubMap'), {
 	)
 });
 
-const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFriendly, logo }) => {
+const KlubPage: NextPage<KlubProps> = ({ slug, name, description, location, locationFriendly, logo }) => {
 	const router = useRouter();
 	const [latLon, setLatLon] = useState<LatLon>();
 
@@ -52,7 +52,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 	return (
 		<>
 			<NextSeo //
-				title={name}
+				title={name ?? slug ?? ''}
 				description={description ?? undefined}
 			/>
 			<Offset />
@@ -72,7 +72,7 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 							)}
 							{location && latLon && (
 								<div className="h-96 p-4">
-									<ClubMap latlon={latLon} title={name} />
+									<ClubMap latlon={latLon} title={name ?? slug ?? ''} />
 								</div>
 							)}
 						</div>
@@ -105,7 +105,8 @@ const KlubPage: NextPage<KlubProps> = ({ name, description, location, locationFr
 
 const GET_CLUB = gql`
 	query Club($slug: citext!) {
-		club(where: { slug: { _eq: $slug } }) {
+		club(limit: 1, where: { slug: { _eq: $slug } }) {
+			slug
 			name
 			description
 			location
@@ -117,15 +118,16 @@ const GET_CLUB = gql`
 
 export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async ({ params }) => {
 	const { data } = await client.query<GraphQLResponse<'club'>>({ query: GET_CLUB, variables: { slug: params?.slug } });
-	const club = data.club as Pick<Club, 'name' | 'description' | 'location' | 'location_friendly' | 'logo'>;
+	const club = data.club.length > 0 ? data.club[0] : undefined;
 
 	return {
 		props: {
-			name: club.name!,
-			description: club.description!,
-			location: club.location!,
-			locationFriendly: club.location_friendly!,
-			logo: club.logo!
+			slug: club?.slug ?? null,
+			name: club?.name ?? null,
+			description: club?.description ?? null,
+			location: club?.location ?? null,
+			locationFriendly: club?.location_friendly ?? null,
+			logo: club?.logo ?? null
 		},
 		revalidate: 120
 	};

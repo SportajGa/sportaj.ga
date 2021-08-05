@@ -23,8 +23,24 @@ const CREATE_MAPPING = gql`
 	}
 `;
 
+export async function fetchUserID(FBId?: string) {
+	const { data } = await client.query<GraphQLResponse<'auth_mapping'>>({
+		query: FETCH_MAPPED_ID,
+		variables: {
+			FBId: FBId ?? ''
+		},
+		context: {
+			headers: { 'x-hasura-admin-secret': serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '' }
+		}
+	});
+
+	return data.auth_mapping.length > 0 ? data.auth_mapping[0].id : undefined;
+}
+
 export async function createMappedUser(account?: Account) {
-	if (account?.provider === 'facebook') {
+	const mappedId = await fetchUserID(account?.id);
+
+	if (account?.provider === 'facebook' && !mappedId) {
 		await client.mutate({
 			mutation: CREATE_MAPPING,
 			variables: { FBId: account.id ?? '' },
@@ -41,18 +57,10 @@ export async function formHasuraJWTPayload(token: JWT, _?: User, account?: Accou
 
 	if (account?.provider === 'facebook') claims.set('X-Hasura-User-FB-Id', account.id);
 
-	const { data } = await client.query<GraphQLResponse<'auth_mapping'>>({
-		query: FETCH_MAPPED_ID,
-		variables: {
-			FBId: claims.get('X-Hasura-User-FB-Id') ?? ''
-		},
-		context: {
-			headers: { 'x-hasura-admin-secret': serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '' }
-		}
-	});
+	const mappedId = await fetchUserID(claims.get('X-Hasura-User-FB-Id'));
 
 	// TODO: Check if there even are elements
-	if (data.auth_mapping[0].id) claims.set('X-Hasura-User-Id', data.auth_mapping[0].id);
+	if (mappedId) claims.set('X-Hasura-User-Id', mappedId);
 
 	return mergeDefault(token, { 'https://hasura.io/jwt/claims': Object.fromEntries(claims) });
 }

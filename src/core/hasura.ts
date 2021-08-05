@@ -27,7 +27,7 @@ export async function fetchUserID(FBId?: string) {
 	const { data } = await client.query<GraphQLResponse<'auth_mapping'>>({
 		query: FETCH_MAPPED_ID,
 		variables: {
-			FBId: FBId ?? ''
+			FBId: FBId ?? '0'
 		},
 		context: {
 			headers: { 'x-hasura-admin-secret': serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '' }
@@ -43,7 +43,7 @@ export async function createMappedUser(account?: Account) {
 	if (account?.provider === 'facebook' && !mappedId) {
 		await client.mutate({
 			mutation: CREATE_MAPPING,
-			variables: { FBId: account.id ?? '' },
+			variables: { FBId: account.id },
 			context: {
 				headers: { 'x-hasura-admin-secret': serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '' }
 			}

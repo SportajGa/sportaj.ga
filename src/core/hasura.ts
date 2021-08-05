@@ -24,7 +24,15 @@ const CREATE_MAPPING = gql`
 `;
 
 export async function createMappedUser(account?: Account) {
-	if (account?.provider === 'facebook') await client.mutate({ mutation: CREATE_MAPPING, variables: { FBId: account.id ?? '' } });
+	if (account?.provider === 'facebook') {
+		await client.mutate({
+			mutation: CREATE_MAPPING,
+			variables: { FBId: account.id ?? '' },
+			context: {
+				headers: { 'x-hasura-admin-secret': serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '' }
+			}
+		});
+	}
 }
 
 export async function formHasuraJWTPayload(token: JWT, _?: User, account?: Account, __?: Profile) {

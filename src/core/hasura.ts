@@ -15,6 +15,18 @@ const FETCH_MAPPED_ID = gql`
 	}
 `;
 
+const CREATE_MAPPING = gql`
+	mutation CreateUserMapping($FBId: bigint!) {
+		insert_auth_mapping_one(object: { facebook_id: $FBId }) {
+			id
+		}
+	}
+`;
+
+export async function createMappedUser(account?: Account) {
+	if (account?.provider === 'facebook') await client.mutate({ mutation: CREATE_MAPPING, variables: { FBId: account.id ?? '' } });
+}
+
 export async function formHasuraJWTPayload(token: JWT, _?: User, account?: Account, __?: Profile) {
 	// TODO: create type definitions
 	const claims = new Map(Object.entries((token['https://hasura.io/jwt/claims'] as Record<string, string> | undefined) ?? {}));

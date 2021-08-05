@@ -1,4 +1,4 @@
-import { formHasuraJWTPayload } from 'core/hasura';
+import { createMappedUser, formHasuraJWTPayload } from 'core/hasura';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
@@ -29,6 +29,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 				// if (account) token.account = account;
 				if (profile) token.profile = profile;
 
+				await createMappedUser(account);
 				token = await formHasuraJWTPayload(token, user, account, profile);
 
 				return token;

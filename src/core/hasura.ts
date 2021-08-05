@@ -1,8 +1,11 @@
 import { gql } from '@apollo/client';
 import { mergeDefault } from '@sapphire/utilities';
+import { client, GraphQLResponse } from 'core/apiClient';
 import type { Account, Profile, User } from 'next-auth';
 import type { JWT } from 'next-auth/jwt';
-import { client, GraphQLResponse } from 'core/apiClient';
+import getConfig from 'next/config';
+
+const { serverRuntimeConfig } = getConfig();
 
 const FETCH_MAPPED_ID = gql`
 	query ResolveUser($FBId: bigint!) {
@@ -24,7 +27,7 @@ export async function formHasuraJWTPayload(token: JWT, _?: User, account?: Accou
 			FBId: claims.get('X-Hasura-User-FB-Id') ?? ''
 		},
 		context: {
-			headers: new Headers().set('x-hasura-admin-secret', process.env.HASURA_GRAPHQL_ADMIN_SECRET ?? '')
+			headers: new Headers().set('x-hasura-admin-secret', serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '')
 		}
 	});
 

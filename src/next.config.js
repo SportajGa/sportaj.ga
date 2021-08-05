@@ -27,6 +27,9 @@ const config = {
             'sportaj.ga'
         ]
     },
+	serverRuntimeConfig: {
+		hasuraGraphQLAdminSecret: process.env.HASURA_GRAPHQL_ADMIN_SECRET
+	},
     webpack5: true
 }
 

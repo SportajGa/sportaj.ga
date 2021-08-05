@@ -27,7 +27,7 @@ export async function formHasuraJWTPayload(token: JWT, _?: User, account?: Accou
 			FBId: claims.get('X-Hasura-User-FB-Id') ?? ''
 		},
 		context: {
-			headers: new Headers().set('x-hasura-admin-secret', serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '')
+			headers: { 'x-hasura-admin-secret': serverRuntimeConfig.hasuraGraphQLAdminSecret ?? '' }
 		}
 	});
 

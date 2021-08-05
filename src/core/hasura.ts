@@ -52,15 +52,14 @@ export async function createMappedUser(account?: Account) {
 }
 
 export async function formHasuraJWTPayload(token: JWT, _?: User, account?: Account, __?: Profile) {
-	// TODO: create type definitions
-	const claims = new Map(Object.entries((token['https://hasura.io/jwt/claims'] as Record<string, string> | undefined) ?? {}));
+	const claims = new Map(Object.entries((token['https://hasura.io/jwt/claims'] as Claims) ?? {}));
 
 	if (account?.provider === 'facebook') claims.set('X-Hasura-User-FB-Id', account.id);
 
 	const mappedId = await fetchUserID(claims.get('X-Hasura-User-FB-Id'));
-
-	// TODO: Check if there even are elements
 	if (mappedId) claims.set('X-Hasura-User-Id', mappedId);
 
 	return mergeDefault(token, { 'https://hasura.io/jwt/claims': Object.fromEntries(claims) });
 }
+
+export type Claims = Record<string, string> | undefined;

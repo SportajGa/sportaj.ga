@@ -59,7 +59,7 @@
   "devDependencies": {
     "@sapphire/eslint-config": "3.2.3",
     "@sapphire/prettier-config": "1.1.6",
-    "@sapphire/ts-config": "2.3.2",
+    "@sapphire/ts-config": "3.0.0",
     "@storybook/addon-actions": "6.3.6",
     "@storybook/addon-controls": "6.3.6",
     "@storybook/addon-docs": "6.3.6",

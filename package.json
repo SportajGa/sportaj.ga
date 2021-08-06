@@ -29,7 +29,7 @@
     "@fullcalendar/timegrid": "5.9.0",
     "@headlessui/react": "1.4.0",
     "@reduxjs/toolkit": "1.6.1",
-    "@sapphire/utilities": "1.7.0",
+    "@sapphire/utilities": "2.0.1",
     "@sportajga/mappings": "^0.0.4",
     "@tailwindcss/typography": "0.4.1",
     "axios": "0.21.1",

@@ -1786,7 +1786,7 @@
   resolved "https://registry.yarnpkg.com/@sqltools/formatter/-/formatter-1.2.3.tgz#1185726610acc37317ddab11c3c7f9066966bd20"
   integrity sha512-O3uyB/JbkAEMZaP3YqyHH7TMnex7tWyCbCI4EfJdOCoN6HIhqdJBWTM6aCCiWQ/5f5wxjgU735QAIpJbjDvmzg==
 
-"@storybook/addon-actions@^6.3.4":
+"@storybook/addon-actions@6.3.6":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.3.6.tgz#691d61d6aca9c4b3edba50c531cbe4d4139ed451"
   integrity sha512-1MBqCbFiupGEDyIXqFkzF4iR8AduuB7qSNduqtsFauvIkrG5bnlbg5JC7WjnixkCaaWlufgbpasEHioXO9EXGw==
@@ -1809,7 +1809,7 @@
     util-deprecate "^1.0.2"
     uuid-browser "^3.1.0"
 
-"@storybook/addon-controls@^6.3.4":
+"@storybook/addon-controls@6.3.6":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.3.6.tgz#2f8071e5b521375aace60af96e33a19f016581c9"
   integrity sha512-wTWmnZl2qEAUqgLh8a7TL5f6w37Q51lAoJNlwxFFBSKtGS7xFUnou4qTUArNy5iKu1cWoVvofJ9RnP1maGByYA==
@@ -1823,7 +1823,7 @@
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-docs@^6.3.4":
+"@storybook/addon-docs@6.3.6":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.3.6.tgz#85b8a72b91f9c43edfaf21c416a9b01ad0e06ea4"
   integrity sha512-/ZPB9u3lfc6ZUrgt9HENU1BxAHNfTbh9r2LictQ8o9gYE/BqvZutl2zqilTpVuutQtTgQ6JycVhxtpk9+TDcuA==
@@ -1873,7 +1873,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-viewport@^6.3.4":
+"@storybook/addon-viewport@6.3.6":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-6.3.6.tgz#9117316e918559d389a19571166579858b25b09b"
   integrity sha512-Z5eztFFGd6vd+38sDurfTkIr9lY6EYWtMJzr5efedRZGg2IZLXZxQCoyjKEB29VB/IIjHEYHhHSh4SFsHT/m6g==
@@ -2323,7 +2323,7 @@
     react-docgen-typescript "^2.0.0"
     tslib "^2.0.0"
 
-"@storybook/react@^6.3.4":
+"@storybook/react@6.3.6":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.3.6.tgz#593bc0743ad22ed5e6e072e6157c20c704864fc3"
   integrity sha512-2c30XTe7WzKnvgHBGOp1dzBVlhcbc3oEX0SIeVE9ZYkLvRPF+J1jG948a26iqOCOgRAW13Bele37mG1gbl4tiw==

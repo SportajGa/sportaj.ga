@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import NavBarItem from 'components/NavBarItem';
 import { FacebookPictureProxy } from 'core/constants';
+import { proxyFBIcon } from 'core/proxy';
 import { signIn, signOut } from 'next-auth/client';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
@@ -21,14 +22,7 @@ const NavBar: React.FC = () => {
 	const status = useSelector(selectLoggedIn);
 	const profile = useSelector(selectUserProfile);
 
-	// TODO: tidy up
-	let imageURL = profile.picture.data.url;
-	const { hostname, searchParams } = new URL(imageURL);
-	if (hostname === 'platform-lookaside.fbsbx.com') {
-		imageURL = `${FacebookPictureProxy}?asid=${searchParams.get('asid')}&height=${searchParams.get('height')}&width=${searchParams.get(
-			'width'
-		)}&ext=${searchParams.get('ext')}&hash=${searchParams.get('hash')}`;
-	}
+	const imageURL = proxyFBIcon(profile.picture.data.url);
 
 	return (
 		<div className="w-full fixed z-50">

@@ -14,7 +14,7 @@
     "pages:build": "npm run build && npm run export"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.21",
+    "@apollo/client": "3.4.3",
     "@fortawesome/fontawesome-svg-core": "1.2.35",
     "@fortawesome/free-brands-svg-icons": "5.15.3",
     "@fortawesome/free-regular-svg-icons": "5.15.3",

@@ -2,7 +2,6 @@ import { faBars, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import NavBarItem from 'components/NavBarItem';
-import { FacebookPictureProxy } from 'core/constants';
 import { proxyFBIcon } from 'core/proxy';
 import { signIn, signOut } from 'next-auth/client';
 import useTranslation from 'next-translate/useTranslation';

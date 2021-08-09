@@ -8,7 +8,7 @@ import Loading from 'components/Loading';
 import Offset from 'components/Offset';
 import { client, GraphQLResponse } from 'core/apiClient';
 import { allClubSlugs } from 'core/clubs';
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
 import dynamic from 'next/dynamic';
@@ -148,13 +148,13 @@ export const getStaticProps: GetStaticProps<KlubProps, { slug: string }> = async
 	};
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
 	const slugs = await allClubSlugs();
 
 	return {
 		paths: slugs.map((slug) => ({ params: { slug }, locale: 'sl' })),
-		fallback: true
+		fallback: 'blocking'
 	};
-}
+};
 
 export default KlubPage;

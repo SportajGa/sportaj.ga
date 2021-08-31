@@ -47,7 +47,7 @@ jobs:
           fetch-depth: 10
       - name: Add Docker tags
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
+        uses: crazy-max/ghaction-docker-meta@v3
         with:
           images: ghcr.io/${{ github.repository }}
       - name: Set up QEMU

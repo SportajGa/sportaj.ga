@@ -1,4 +1,4 @@
-FROM node:16-alpine AS base
+FROM node:17-alpine AS base
 
 WORKDIR /base
 
@@ -22,7 +22,7 @@ COPY --from=base /base ./
 
 RUN yarn run build
 
-FROM node:16-alpine AS production
+FROM node:17-alpine AS production
 
 RUN apk add --no-cache dumb-init
 

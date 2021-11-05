@@ -41,7 +41,7 @@ const KlubPage: NextPage<KlubProps> = ({ pathSlug, slug, name, description, loca
 
 	useEffect(() => {
 		if (location) {
-			const [latitude, longitude] = location.split(',').map(Number);
+			const [longitude, latitude] = location.split(',').map(Number);
 			setLatLon({ latitude, longitude });
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,8 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 import type { GeoJsonFormOut } from '@sportajga/mappings';
 import type { GraphQLResponse } from 'core/apiClient';
-import React from 'react';
-import ReactMapGL, { FullscreenControl, GeolocateControl, Layer, Source } from 'react-map-gl';
+import React, { useCallback, useState } from 'react';
+import ReactMapGL, { FullscreenControl, GeolocateControl, Layer, MapEvent, Source } from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectViewport, setViewport } from 'state/reducers/map';
 
@@ -17,12 +17,26 @@ const GET_CLUB_CLUSTERS = gql`
 `;
 
 const MapMap: React.FC<MapMapProps> = () => {
+	const [hoverData, setHoverData] = useState<MapHoverData | null>(null);
 	const viewport = useSelector(selectViewport);
 	const dispatch = useDispatch();
 
-	const { data, loading } = useQuery<GraphQLResponse<'geojson'>>(GET_CLUB_CLUSTERS, {
-		pollInterval: 500
-	});
+	const { data, loading } = useQuery<GraphQLResponse<'geojson'>>(GET_CLUB_CLUSTERS);
+
+	const onHover = useCallback((event: MapEvent) => {
+		const {
+			features,
+			// @ts-expect-error Data will be present on expected events
+			srcEvent: { offsetX, offsetY }
+		} = event;
+
+		console.log(event);
+
+		const hoveredFeature = features && features[0];
+		const name = hoveredFeature?.properties?.Name;
+
+		setHoverData(name ? { title: name, x: offsetX, y: offsetY } : null);
+	}, []);
 
 	return (
 		<>
@@ -34,20 +48,31 @@ const MapMap: React.FC<MapMapProps> = () => {
 				width="100%"
 				height="100%"
 				onViewportChange={(viewport: unknown) => dispatch(setViewport(viewport as any))}
+				onHover={onHover}
 			>
 				<FullscreenControl className="right -16 top-4" />
 				<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
 				{!loading && data && (
-					<Source id="clubs" type="geojson" data={JSON.parse((data!.geojson as GeoJsonFormOut).data)}>
-						<Layer
-							id="point"
-							type="circle"
-							paint={{
-								'circle-radius': 10,
-								'circle-color': '#007cbf'
-							}}
-						/>
-					</Source>
+					<>
+						<Source id="clubs" type="geojson" data={JSON.parse((data!.geojson as GeoJsonFormOut).data)}>
+							<Layer
+								id="point"
+								type="circle"
+								paint={{
+									'circle-radius': 10,
+									'circle-color': '#007cbf'
+								}}
+							/>
+						</Source>
+						{hoverData !== null && (
+							<div
+								className="absolute pointer-events-none text-white bg-black m-1 p-1 text-sm rounded-md"
+								style={{ left: hoverData.x, top: hoverData.y }}
+							>
+								{hoverData.title}
+							</div>
+						)}
+					</>
 				)}
 			</ReactMapGL>
 		</>
@@ -55,3 +80,9 @@ const MapMap: React.FC<MapMapProps> = () => {
 };
 
 export default MapMap;
+
+export interface MapHoverData {
+	title: string;
+	x: number;
+	y: number;
+}

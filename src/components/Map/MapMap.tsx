@@ -50,7 +50,7 @@ const MapMap: React.FC<MapMapProps> = () => {
 				onViewportChange={(viewport: unknown) => dispatch(setViewport(viewport as any))}
 				onHover={onHover}
 			>
-				<FullscreenControl className="right -16 top-4" />
+				<FullscreenControl className="left-4 top-4" />
 				<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
 				{!loading && data && (
 					<>

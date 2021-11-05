@@ -8791,10 +8791,10 @@ next-auth@3.29.0:
     preact-render-to-string "^5.1.14"
     querystring "^0.2.0"
 
-next-plausible@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-3.1.1.tgz#5040d1cce39a99e39283862ff5511d0fc9d2c1df"
-  integrity sha512-Y/YcJJa1al6d6WV81efXR1pth8a4TDd9Th3PJAGPssVsKkkhEyWYjauoKc2H+dCyDNs2tmzdYLKH+RIY8FT6kQ==
+next-plausible@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-3.1.2.tgz#e1d27b789dbb476f6fb4b6694be01a2951407e6e"
+  integrity sha512-C9d8+0eDbBTApxlUAXqsN7fwS+BpWh9vGnG5oiKibSA4hknh1mzo+wlD5/OZ/Boe/L3iR6lquiBw+jAWHYY8aw==
 
 next-seo@*:
   version "4.26.0"

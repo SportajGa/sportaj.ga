@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev src -p 3000",
+    "prebuild": "yarn build:sitemap",
     "build": "next build src",
     "export": "next export src",
     "clean": "rimraf src/.next src/public/sw.js src/public/workbox* src/public/sitemap.xml",
     "start": "next start src",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook",
+    "build:storybook": "build-storybook",
+    "build:sitemap": "node scripts/sitemapGenerator.mjs",
     "pages:npmrc": "node is-pages && mv .npmrc.pages .npmrc || echo \"Not Pages\"",
     "pages:build": "npm run build && npm run export"
   },

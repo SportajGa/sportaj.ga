@@ -30,8 +30,6 @@ const MapMap: React.FC<MapMapProps> = () => {
 			srcEvent: { offsetX, offsetY }
 		} = event;
 
-		console.log(event);
-
 		const hoveredFeature = features && features[0];
 		const name = hoveredFeature?.properties?.Name;
 
@@ -39,43 +37,41 @@ const MapMap: React.FC<MapMapProps> = () => {
 	}, []);
 
 	return (
-		<>
-			<ReactMapGL
-				{...viewport}
-				// TODO: fetch from API endpoint
-				mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
-				mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2"
-				width="100%"
-				height="100%"
-				onViewportChange={(viewport: unknown) => dispatch(setViewport(viewport as any))}
-				onHover={onHover}
-			>
-				<FullscreenControl className="left-4 top-4" />
-				<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
-				{!loading && data && (
-					<>
-						<Source id="clubs" type="geojson" data={JSON.parse((data!.geojson as GeoJsonFormOut).data)}>
-							<Layer
-								id="point"
-								type="circle"
-								paint={{
-									'circle-radius': 10,
-									'circle-color': '#007cbf'
-								}}
-							/>
-						</Source>
-						{hoverData !== null && (
-							<div
-								className="absolute pointer-events-none text-white bg-black m-1 p-1 text-sm rounded-md"
-								style={{ left: hoverData.x, top: hoverData.y }}
-							>
-								{hoverData.title}
-							</div>
-						)}
-					</>
-				)}
-			</ReactMapGL>
-		</>
+		<ReactMapGL
+			{...viewport}
+			// TODO: fetch from API endpoint
+			mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
+			mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2"
+			width="100%"
+			height="100%"
+			onViewportChange={(viewport: unknown) => dispatch(setViewport(viewport as any))}
+			onHover={onHover}
+		>
+			<FullscreenControl className="left-4 top-4" />
+			<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
+			{!loading && data && (
+				<>
+					<Source id="clubs" type="geojson" data={JSON.parse((data!.geojson as GeoJsonFormOut).data)}>
+						<Layer
+							id="point"
+							type="circle"
+							paint={{
+								'circle-radius': 10,
+								'circle-color': '#007cbf'
+							}}
+						/>
+					</Source>
+					{!loading && hoverData !== null && (
+						<div
+							className="absolute pointer-events-none text-white bg-black m-1 p-2 text-sm rounded-md"
+							style={{ left: hoverData.x, top: hoverData.y }}
+						>
+							{hoverData.title}
+						</div>
+					)}
+				</>
+			)}
+		</ReactMapGL>
 	);
 };
 

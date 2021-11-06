@@ -22,26 +22,24 @@ const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 	});
 
 	return (
-		<>
-			<ReactMapGL
-				{...viewport}
-				// TODO: fetch from API endpoint
-				mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
-				mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2"
-				width="100%"
-				height="100%"
-				onViewportChange={(viewport: unknown) => setViewport(viewport as any)}
-			>
-				<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
-				{latlon?.latitude && latlon?.longitude ? (
-					<Marker latitude={latlon.latitude} longitude={latlon.longitude} offsetLeft={-10} offsetTop={-2}>
-						<Tooltip title={title}>
-							<FontAwesomeIcon icon={faBasketballBall} className="text-red-600" size="2x" />
-						</Tooltip>
-					</Marker>
-				) : null}
-			</ReactMapGL>
-		</>
+		<ReactMapGL
+			{...viewport}
+			// TODO: fetch from API endpoint
+			mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
+			mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2"
+			width="100%"
+			height="100%"
+			onViewportChange={(viewport: unknown) => setViewport(viewport as any)}
+		>
+			<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
+			{latlon?.latitude && latlon?.longitude ? (
+				<Marker latitude={latlon.latitude} longitude={latlon.longitude} offsetLeft={-10} offsetTop={-2}>
+					<Tooltip title={title}>
+						<FontAwesomeIcon icon={faBasketballBall} className="text-red-600" size="2x" />
+					</Tooltip>
+				</Marker>
+			) : null}
+		</ReactMapGL>
 	);
 };
 

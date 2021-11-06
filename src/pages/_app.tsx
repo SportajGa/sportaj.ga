@@ -17,6 +17,7 @@ import { store } from 'state';
 import 'styles/_App.css';
 import 'react-tippy/dist/tippy.css';
 import 'react-placeholder/lib/reactPlaceholder.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import AuthTrack from 'components/auth/AuthTrack';

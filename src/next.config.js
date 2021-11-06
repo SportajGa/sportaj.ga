@@ -33,7 +33,7 @@ const config = {
 		baseURL: process.env.BASE_URL
 	},
 	webpack5: true,
-	swcMinify: true,
+	// swcMinify: true,
 	// experimental: {
 	// 	reactRoot: true,
 	// 	concurrentFeatures: true,

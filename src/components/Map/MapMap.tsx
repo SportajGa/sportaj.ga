@@ -6,22 +6,24 @@ import ReactMapGL, { FullscreenControl, GeolocateControl, Layer, MapEvent, Sourc
 import { useDispatch, useSelector } from 'react-redux';
 import { selectViewport, setViewport } from 'state/reducers/map';
 
-export interface MapMapProps {}
+export interface MapMapProps {
+	search: string;
+}
 
 const GET_CLUB_CLUSTERS = gql`
-	query ClusterPoints {
-		geojson(filter: { name: "", slug: "" }) {
+	query ClusterPoints($name: String!) {
+		geojson(filter: { name: $name, slug: "" }) {
 			data
 		}
 	}
 `;
 
-const MapMap: React.FC<MapMapProps> = () => {
+const MapMap: React.FC<MapMapProps> = ({ search }) => {
 	const [hoverData, setHoverData] = useState<MapHoverData | null>(null);
 	const viewport = useSelector(selectViewport);
 	const dispatch = useDispatch();
 
-	const { data, loading } = useQuery<GraphQLResponse<'geojson'>>(GET_CLUB_CLUSTERS);
+	const { data, loading } = useQuery<GraphQLResponse<'geojson'>>(GET_CLUB_CLUSTERS, { variables: { name: search } });
 
 	const onHover = useCallback((event: MapEvent) => {
 		const {

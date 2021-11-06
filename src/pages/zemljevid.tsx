@@ -70,7 +70,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = () => {
 										</ReactPlaceholder>
 									}
 								>
-									<MapMap />
+									<MapMap search={search} />
 								</Suspense>
 							</div>
 						</div>

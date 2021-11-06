@@ -5,7 +5,7 @@ import Offset from 'components/Offset';
 import type { GraphQLResponse } from 'core/apiClient';
 import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import ReactPlaceholder from 'react-placeholder/lib';
 
 export interface ZemljevidProps {}
@@ -26,11 +26,7 @@ const GET_ALL_CLUBS = gql`
 
 const MapMap = dynamic(() => import('components/Map/MapMap'), {
 	ssr: false,
-	loading: () => (
-		<ReactPlaceholder showLoadingAnimation={true} ready={false} type="rect">
-			<div />
-		</ReactPlaceholder>
-	)
+	suspense: true
 });
 
 const ZemljevidPage: NextPage<ZemljevidProps> = () => {
@@ -67,7 +63,15 @@ const ZemljevidPage: NextPage<ZemljevidProps> = () => {
 						</div>
 						<div className="w-full px-4">
 							<div className="rounded-lg h-96 md:h-160">
-								<MapMap />
+								<Suspense
+									fallback={
+										<ReactPlaceholder showLoadingAnimation={true} ready={false} type="rect">
+											<div />
+										</ReactPlaceholder>
+									}
+								>
+									<MapMap />
+								</Suspense>
 							</div>
 						</div>
 					</div>

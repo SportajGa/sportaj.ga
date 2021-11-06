@@ -12,7 +12,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
 import dynamic from 'next/dynamic';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Else, If, Then } from 'react-if';
 import ReactPlaceholder from 'react-placeholder/lib';
 
@@ -28,11 +28,7 @@ export interface KlubProps {
 
 const ClubMap = dynamic(() => import('components/Club/ClubMap'), {
 	ssr: false,
-	loading: () => (
-		<ReactPlaceholder showLoadingAnimation={true} ready={false} type="rect">
-			.
-		</ReactPlaceholder>
-	)
+	suspense: true
 });
 
 const KlubPage: NextPage<KlubProps> = ({ pathSlug, slug, name, description, location, locationFriendly, logo }) => {
@@ -84,7 +80,15 @@ const KlubPage: NextPage<KlubProps> = ({ pathSlug, slug, name, description, loca
 									)}
 									{location && latLon && (
 										<div className="h-96 p-4">
-											<ClubMap latlon={latLon} title={name ?? slug ?? ''} />
+											<Suspense
+												fallback={
+													<ReactPlaceholder showLoadingAnimation={true} ready={false} type="rect">
+														<div />
+													</ReactPlaceholder>
+												}
+											>
+												<ClubMap latlon={latLon} title={name ?? slug ?? ''} />
+											</Suspense>
 										</div>
 									)}
 								</div>

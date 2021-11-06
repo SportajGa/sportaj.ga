@@ -48,7 +48,7 @@ const MapMap: React.FC<MapMapProps> = () => {
 			onHover={onHover}
 		>
 			<FullscreenControl className="left-4 top-4" />
-			<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
+			<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={false} />
 			{!loading && data && (
 				<>
 					<Source id="clubs" type="geojson" data={JSON.parse((data!.geojson as GeoJsonFormOut).data)}>

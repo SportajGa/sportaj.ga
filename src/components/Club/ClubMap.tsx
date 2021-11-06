@@ -31,7 +31,7 @@ const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 			height="100%"
 			onViewportChange={(viewport: unknown) => setViewport(viewport as any)}
 		>
-			<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={true} />
+			<GeolocateControl className="right-4 top-4" positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} auto={false} />
 			{latlon?.latitude && latlon?.longitude ? (
 				<Marker latitude={latlon.latitude} longitude={latlon.longitude} offsetLeft={-10} offsetTop={-2}>
 					<Tooltip title={title}>

@@ -28,7 +28,8 @@ const config = {
         ]
     },
 	serverRuntimeConfig: {
-		hasuraGraphQLAdminSecret: process.env.HASURA_GRAPHQL_ADMIN_SECRET
+		hasuraGraphQLAdminSecret: process.env.HASURA_GRAPHQL_ADMIN_SECRET,
+		baseURL: process.env.BASE_URL
 	},
     webpack5: true
 }

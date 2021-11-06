@@ -1,4 +1,3 @@
-import AuthRequire from 'components/auth/AuthRequire';
 import Offset from 'components/Offset';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
@@ -11,9 +10,7 @@ const AdminClubPage: NextPage = () => {
 	return (
 		<>
 			<Offset />
-			<AuthRequire>
-				<div>Oh this is {slug}</div>
-			</AuthRequire>
+			<div>Oh this is {slug}</div>
 		</>
 	);
 };

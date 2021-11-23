@@ -18,6 +18,9 @@ const GET_CLUB_CLUSTERS = gql`
 	}
 `;
 
+const accessKey = process.env.NEXT_PUBLIC_MAPBOX_API_ACCESS_KEY;
+const mapStyle = process.env.NEXT_PUBLIC_MAPBOX_MAP_STYLE;
+
 const MapMap: React.FC<MapMapProps> = ({ search }) => {
 	const [hoverData, setHoverData] = useState<MapHoverData | null>(null);
 	const viewport = useSelector(selectViewport);
@@ -41,9 +44,9 @@ const MapMap: React.FC<MapMapProps> = ({ search }) => {
 	return (
 		<ReactMapGL
 			{...viewport}
-			// TODO: fetch from API endpoint
-			mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
-			mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2?optimize=true"
+			mapboxApiUrl={'https://api.mapbox.com'}
+			mapboxApiAccessToken={accessKey}
+			mapStyle={mapStyle}
 			width="100%"
 			height="100%"
 			onViewportChange={(viewport: unknown) => dispatch(setViewport(viewport as any))}

@@ -11,7 +11,7 @@ export interface MapClubProps {
 const MapClub: React.FC<MapClubProps> = ({ club }) => {
 	return (
 		<li className="list-none py-1">
-			<Link href={`klub/${club.slug}`}>
+			<Link href={`klub/${club.slug}`} passHref>
 				<div className="p-4 mx-auto bg-white rounded-xl flex items-center space-x-4 select-none cursor-pointer shadow-xl max-w-sm">
 					<figure className="flex-shrink-0">
 						<div className="h-12 w-12 relative">

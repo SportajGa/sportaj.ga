@@ -14,6 +14,9 @@ export interface ClubMapProps {
 	title: string;
 }
 
+const accessKey = process.env.NEXT_PUBLIC_MAPBOX_API_ACCESS_KEY;
+const mapStyle = process.env.NEXT_PUBLIC_MAPBOX_MAP_STYLE;
+
 const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 	const [viewport, setViewport] = useState({
 		latitude: latlon?.latitude,
@@ -24,9 +27,9 @@ const ClubMap: React.FC<ClubMapProps> = ({ latlon, title }) => {
 	return (
 		<ReactMapGL
 			{...viewport}
-			// TODO: fetch from API endpoint
-			mapboxApiAccessToken="pk.eyJ1IjoicXVhbnR1bWx5IiwiYSI6ImNrcjNyODM0MjJscmcybnFoMnNidzJ5cnUifQ.KDqGaslaoCFpU3X6e96MUA"
-			mapStyle="mapbox://styles/quantumly/ckr4hgwcl0gtk18o6x7k739a2?optimize=true"
+			mapboxApiUrl={'https://api.mapbox.com'}
+			mapboxApiAccessToken={accessKey}
+			mapStyle={mapStyle}
 			width="100%"
 			height="100%"
 			onViewportChange={(viewport: unknown) => setViewport(viewport as any)}

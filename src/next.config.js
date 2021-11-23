@@ -34,11 +34,11 @@ const config = {
 	},
 	webpack5: true,
 	// swcMinify: true,
-	experimental: {
-		reactRoot: false,
-		concurrentFeatures: false,
-		serverComponents: false
-	},
+	// experimental: {
+	// 	reactRoot: true,
+	// 	concurrentFeatures: true,
+	// 	serverComponents: true
+	// },
 }
 
 // @ts-ignore No types

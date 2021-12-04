@@ -67,7 +67,7 @@ const ZemljevidPage: NextPage<ZemljevidProps> = () => {
 						</div>
 						<div className="w-full px-4">
 							<div className="rounded-lg h-96 md:h-160">
-								<MapMap />
+								<MapMap search={search} />
 							</div>
 						</div>
 					</div>

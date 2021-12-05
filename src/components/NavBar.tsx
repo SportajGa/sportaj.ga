@@ -6,26 +6,44 @@ import { proxyFBIcon } from 'core/proxy';
 import { signIn, signOut } from 'next-auth/client';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Else, If, Then, Unless } from 'react-if';
 import { useSelector } from 'react-redux';
+import { selectSolidNavbar } from 'state/reducers/site';
 import { selectLoggedIn, selectUserProfile } from 'state/reducers/user';
 
-// Based on https://tailwindui.com/components/application-ui/navigation/navbars
 const NavBar: React.FC = () => {
 	const { t } = useTranslation('common');
 	const linkStyle = '';
 	const navItemStyle = `px-3 py-2 rounded-md text-sm font-medium select-none cursor-pointer ${linkStyle}`;
 	const navItemMobileStyle = `block px-3 py-2 rounded-md text-base font-medium select-none cursor-pointer ${linkStyle}`;
 
+	const [scrollPosition, setScrollPosition] = useState(0);
+	const handleScroll = () => {
+		const position = window.pageYOffset;
+		setScrollPosition(position);
+	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll, { passive: true });
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
+
 	const status = useSelector(selectLoggedIn);
 	const profile = useSelector(selectUserProfile);
+	const solid = useSelector(selectSolidNavbar);
 
 	const imageURL = proxyFBIcon(profile.picture.data.url);
 
 	return (
 		<div className="w-full fixed z-50">
-			<Disclosure as="nav" className="mt-4 mx-4 rounded-md shadow-xl bg-brand text-white">
+			<Disclosure
+				as="nav"
+				className={`transition duration-500 ease-in-out ${scrollPosition === 0 && !solid ? 'bg-transparent' : 'bg-element'} text-text`}
+			>
 				{({ open }) => (
 					<>
 						<div className="w-full mx-auto px-2 md:px-6 xl:px-8">

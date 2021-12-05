@@ -1,8 +1,20 @@
 import Offset from 'components/Offset';
 import type { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setSolidNavbar } from 'state/reducers/site';
 
 const IndexPage: NextPage = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(setSolidNavbar(false));
+
+		return () => {
+			dispatch(setSolidNavbar(true));
+		};
+	}, []);
+
 	return (
 		<>
 			<Offset />

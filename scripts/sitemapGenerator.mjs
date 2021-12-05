@@ -8,5 +8,5 @@ await sitemapGenerator({
 	pagesDirectory: fileURLToPath(new URL('pages/', srcDir)),
 	targetDirectory: fileURLToPath(new URL('public/', srcDir)),
 	nextConfigPath: fileURLToPath(new URL('next.config.js', srcDir)),
-	ignoredPaths: ['/klub/[slug]', '/api/', '/auth/signin']
+	ignoredPaths: ['/klub/[slug]', '/api/', '/auth/signin', 'admin/[slug]']
 });

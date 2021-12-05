@@ -14,7 +14,7 @@
 ::-webkit-scrollbar {
 	width: 8px;
 	height: 10px;
-    @apply bg-element-neutral;
+    @apply bg-element-tertiary;
 }
 ::-webkit-scrollbar-thumb {
 	border-radius: 8px;

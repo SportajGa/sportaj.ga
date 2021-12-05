@@ -3,19 +3,20 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import Offset from 'components/Offset';
 import * as Yup from 'yup';
+import FormError from 'components/forms/FormError';
 
 const ClubSchema = Yup.object().shape({
-	name: Yup.string().required(),
+	name: Yup.string().min(1).required(),
 	slug: Yup.string().min(1).max(5).required(),
-	description: Yup.string().required(),
+	description: Yup.string().min(1).required(),
 	phonenumber: Yup.string().optional(),
-	email: Yup.string().email().required(),
+	email: Yup.string().email().min(1).required(),
 	website: Yup.string().url().optional(),
 	instagram: Yup.string().min(1).max(30).optional(),
 	facebook: Yup.string().optional(),
 	gcal: Yup.string().url().optional(),
 	caldav: Yup.string().url().optional(),
-	notes: Yup.string().required()
+	notes: Yup.string().optional()
 });
 
 const InitialClubFormPage: NextPage = () => {
@@ -69,6 +70,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.name}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
+										<FormError message={props.errors.name} />
 									</div>
 									<div className="pt-6">
 										<label htmlFor="slug" className="font-bold text-text text-lg mb-2">
@@ -82,7 +84,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.slug}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
-										{props.errors.slug}
+										<FormError message={props.errors.slug} />
 									</div>
 									<div className="pt-6">
 										<label htmlFor="description" className="font-bold text-text text-lg mb-2">
@@ -95,6 +97,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.description}
 											className="rounded-lg w-full border border-element-secondary block py-1 px-2"
 										></textarea>
+										<FormError message={props.errors.description} />
 									</div>
 									<div className="pt-6">
 										<span className="font-bold text-text text-lg mb-2">Kontakt:</span>
@@ -120,7 +123,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.email}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
-										{props.errors.email}
+										<FormError message={props.errors.email} />
 										<label htmlFor="website" className="italic text-text-secondary text-sm mt-1 block">
 											Spletna stran:
 										</label>
@@ -132,6 +135,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.website}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
+										<FormError message={props.errors.website} />
 										<label htmlFor="instagram" className="italic text-text-secondary text-sm mt-1 block">
 											Instagram:
 										</label>
@@ -143,7 +147,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.instagram}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
-										{props.errors.instagram}
+										<FormError message={props.errors.instagram} />
 										<label htmlFor="facebook" className="italic text-text-secondary text-sm mt-1 block">
 											Facebook:
 										</label>
@@ -169,7 +173,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.gcal}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
-										{props.errors.gcal}
+										<FormError message={props.errors.gcal} />
 										<label htmlFor="caldav" className="italic text-text-secondary text-sm mt-1 block">
 											CalDAV/ICS link:
 										</label>
@@ -181,7 +185,7 @@ const InitialClubFormPage: NextPage = () => {
 											value={props.values.caldav}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
-										{props.errors.caldav}
+										<FormError message={props.errors.caldav} />
 									</div>
 									<div className="pt-6">
 										<label htmlFor="notes" className="font-bold text-text text-lg mb-2">

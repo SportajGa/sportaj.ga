@@ -43,11 +43,11 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 							</Head>
 							<DefaultSeo {...DefaultSEOProps} />
 
-							<div className="flex flex-col h-screen justify-between bg-isabelline">
+							<div className="flex flex-col h-screen justify-between bg-element">
 								<header>
 									<NavBar />
 								</header>
-								<main className="mb-auto bg-isabelline">
+								<main className="mb-auto bg-element">
 									<Component {...pageProps} />
 								</main>
 								<footer>

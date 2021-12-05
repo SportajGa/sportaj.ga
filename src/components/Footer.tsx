@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
 	const rowPadding = 'pt-2 pb-2';
 
 	return (
-		<section className="px-6 py-4 block bg-bittersweet text-white">
+		<section className="px-6 py-4 block bg-brand text-white">
 			<div className="text-center content-center">
 				<div className="grid grid-cols-2 align-middle">
 					<div className="col-auto inset-y-0 left-0">

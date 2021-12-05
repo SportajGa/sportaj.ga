@@ -14,9 +14,9 @@
 ::-webkit-scrollbar {
 	width: 8px;
 	height: 10px;
-    @apply bg-isabelline;
+    @apply bg-element-neutral;
 }
 ::-webkit-scrollbar-thumb {
 	border-radius: 8px;
-	@apply bg-red-munsell;
+	@apply bg-brand-light;
 }

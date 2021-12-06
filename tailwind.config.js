@@ -42,6 +42,10 @@ module.exports = {
 				'8/24': '33.333328%',
 				'15/24': '62.49999%',
 				'16/24': '66.666656%'
+			},
+			screens: {
+				print: { raw: 'print' },
+				safari: { raw: 'not all and (min-resolutionL 0.001dpcm)' }
 			}
 		},
 		container: {

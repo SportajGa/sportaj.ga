@@ -10,7 +10,8 @@ const withTM = require('next-transpile-modules')([
 	'@fullcalendar/common',
 	'@fullcalendar/daygrid',
 	'@fullcalendar/timegrid',
-	'@fullcalendar/google-calendar'
+	'@fullcalendar/google-calendar',
+	'@fullcalendar/icalendar'
 ]);
 
 const config = {
@@ -32,7 +33,6 @@ const config = {
 		hasuraGraphQLAdminSecret: process.env.HASURA_GRAPHQL_ADMIN_SECRET,
 		baseURL: process.env.BASE_URL
 	},
-	webpack5: true,
 	// swcMinify: true,
 	// experimental: {
 	// 	reactRoot: true,

@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import Offset from 'components/Offset';
 import * as Yup from 'yup';
 import FormError from 'components/forms/FormError';
+import FormInfo from 'components/forms/FormInfo';
 
 const ClubSchema = Yup.object().shape({
 	name: Yup.string().min(1).required(),
@@ -15,7 +16,7 @@ const ClubSchema = Yup.object().shape({
 	instagram: Yup.string().min(1).max(30).optional(),
 	facebook: Yup.string().optional(),
 	gcal: Yup.string().url().optional(),
-	caldav: Yup.string().url().optional(),
+	ics: Yup.string().url().optional(),
 	notes: Yup.string().optional()
 });
 
@@ -23,7 +24,7 @@ const InitialClubFormPage: NextPage = () => {
 	return (
 		<>
 			<Offset />
-			<div className="container shadow-lg">
+			<div className="container shadow-lg lg:w-16/24 w-11/12">
 				<div className="bg-element rounded-lg shadow-md">
 					<div className="p-8">
 						<h1 className="text-text font-bold text-2xl">Prijava kluba</h1>
@@ -47,7 +48,7 @@ const InitialClubFormPage: NextPage = () => {
 								instagram: '',
 								facebook: '',
 								gcal: '',
-								caldav: '',
+								ics: '',
 								notes: ''
 							}}
 							validationSchema={ClubSchema}
@@ -76,6 +77,7 @@ const InitialClubFormPage: NextPage = () => {
 										<label htmlFor="slug" className="font-bold text-text text-lg mb-2">
 											URL kratica (slug):
 										</label>
+										<FormInfo message="Heyo" />
 										<input
 											id="slug"
 											name="slug"
@@ -174,18 +176,18 @@ const InitialClubFormPage: NextPage = () => {
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
 										<FormError message={props.errors.gcal} />
-										<label htmlFor="caldav" className="italic text-text-secondary text-sm mt-1 block">
-											CalDAV/ICS link:
+										<label htmlFor="ics" className="italic text-text-secondary text-sm mt-1 block">
+											ICS link:
 										</label>
 										<input
-											id="caldav"
-											name="caldav"
+											id="ics"
+											name="ics"
 											type="url"
 											onChange={props.handleChange}
-											value={props.values.caldav}
+											value={props.values.ics}
 											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
 										></input>
-										<FormError message={props.errors.caldav} />
+										<FormError message={props.errors.ics} />
 									</div>
 									<div className="pt-6">
 										<label htmlFor="notes" className="font-bold text-text text-lg mb-2">

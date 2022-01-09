@@ -6,10 +6,26 @@ import * as Yup from 'yup';
 import FormError from 'components/forms/FormError';
 import FormInfo from 'components/forms/FormInfo';
 
+export interface FormFields {
+	name: string;
+	slug: string;
+	description: string;
+	address: string;
+	phonenumber: string;
+	email: string;
+	website: string;
+	instagram: string;
+	facebook: string;
+	gcal: string;
+	ics: string;
+	notes: string;
+}
+
 const ClubSchema = Yup.object().shape({
 	name: Yup.string().min(1).required(),
 	slug: Yup.string().min(1).max(5).required(),
 	description: Yup.string().min(1).required(),
+	address: Yup.string().min(1).required(),
 	phonenumber: Yup.string().optional(),
 	email: Yup.string().email().min(1).required(),
 	website: Yup.string().url().optional(),
@@ -42,6 +58,7 @@ const InitialClubFormPage: NextPage = () => {
 								name: '',
 								slug: '',
 								description: '',
+								address: '',
 								phonenumber: '',
 								email: '',
 								website: '',
@@ -52,10 +69,7 @@ const InitialClubFormPage: NextPage = () => {
 								notes: ''
 							}}
 							validationSchema={ClubSchema}
-							onSubmit={(values) => {
-								// eslint-disable-next-line no-alert
-								alert(JSON.stringify(values, null, 2));
-							}}
+							onSubmit={(values) => fetch('api/prijava/submit', { method: 'POST', body: JSON.stringify(values) })}
 						>
 							{(props) => (
 								<Form>
@@ -63,6 +77,7 @@ const InitialClubFormPage: NextPage = () => {
 										<label htmlFor="name" className="font-bold text-text text-lg mb-2">
 											Ime kluba:
 										</label>
+										<FormInfo message="Celotno ime vašega kluba" />
 										<input
 											id="name"
 											name="name"
@@ -77,7 +92,7 @@ const InitialClubFormPage: NextPage = () => {
 										<label htmlFor="slug" className="font-bold text-text text-lg mb-2">
 											URL kratica (slug):
 										</label>
-										<FormInfo message="Heyo" />
+										<FormInfo message="Besedilo, ki bo uporabljeno v URL naslovu za vašo stran" />
 										<input
 											id="slug"
 											name="slug"
@@ -92,6 +107,7 @@ const InitialClubFormPage: NextPage = () => {
 										<label htmlFor="description" className="font-bold text-text text-lg mb-2">
 											Opis kluba:
 										</label>
+										<FormInfo message="Opišete vaš klub, poveste..." />
 										<textarea
 											id="description"
 											name="description"
@@ -100,6 +116,20 @@ const InitialClubFormPage: NextPage = () => {
 											className="rounded-lg w-full border border-element-secondary block py-1 px-2"
 										></textarea>
 										<FormError message={props.errors.description} />
+									</div>
+									<div className="pt-6">
+										<label htmlFor="address" className="font-bold text-text text-lg mb-2">
+											Naslov kraja vadbe:
+										</label>
+										<input
+											id="address"
+											name="address"
+											type="text"
+											onChange={props.handleChange}
+											value={props.values.address}
+											className="block border-b border-dotted border-element-secondary w-1/4 outline-none"
+										></input>
+										<FormError message={props.errors.address} />
 									</div>
 									<div className="pt-6">
 										<span className="font-bold text-text text-lg mb-2">Kontakt:</span>

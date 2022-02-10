@@ -121,6 +121,7 @@ const InitialClubFormPage: NextPage = () => {
 										<label htmlFor="address" className="font-bold text-text text-lg mb-2">
 											Naslov kraja vadbe:
 										</label>
+										<FormInfo message="Naslov in poštna številka objekta, kjer se izvajajo treningi" />
 										<input
 											id="address"
 											name="address"
@@ -133,6 +134,7 @@ const InitialClubFormPage: NextPage = () => {
 									</div>
 									<div className="pt-6">
 										<span className="font-bold text-text text-lg mb-2">Kontakt:</span>
+										<FormInfo message="Kontaktni podatki in socialna omrežja, kjer vas lahko uporabniki kontaktirajo" />
 										<label htmlFor="phonenumber" className="italic text-text-secondary text-sm mt-1 block">
 											Telefonska številka:
 										</label>
@@ -194,6 +196,7 @@ const InitialClubFormPage: NextPage = () => {
 									</div>
 									<div className="pt-6">
 										<span className="font-bold text-text text-lg mb-2">Povezava do urnika treningov:</span>
+										<FormInfo message="Povezava do urnika treningov katere vodite " />
 										<label htmlFor="gcal" className="italic text-text-secondary text-sm mt-1 block">
 											Google Calendar link:
 										</label>

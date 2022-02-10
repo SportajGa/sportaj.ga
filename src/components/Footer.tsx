@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
 			<div className="text-center content-center">
 				<div className="grid grid-cols-2 align-middle">
 					<div className="col-auto inset-y-0 left-0">
-						<p className={`${rowPadding}`}>&copy; 2020-{new Date().getFullYear()} Sportaj Ga</p>
+						<p className={`${rowPadding}`}>&copy; 2019-{new Date().getFullYear()} Sportaj Ga</p>
 						<p className={`${rowPadding}`}>
 							<a href="https://twitter.com/SportajGa" target="_blank" rel="noopener noreferrer" className="mr-2 text-3xl">
 								<FontAwesomeIcon icon={faTwitter} />

@@ -13,6 +13,7 @@ const IndexPage: NextPage = () => {
 		return () => {
 			dispatch(setSolidNavbar(true));
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

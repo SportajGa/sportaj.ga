@@ -36,7 +36,7 @@ const ClubSchema = Yup.object().shape({
 	notes: Yup.string().optional()
 });
 
-const InitialClubFormPage: NextPage = () => {
+const KlubPrijavaFormPage: NextPage = () => {
 	return (
 		<>
 			<Offset />
@@ -250,4 +250,4 @@ const InitialClubFormPage: NextPage = () => {
 	);
 };
 
-export default InitialClubFormPage;
+export default KlubPrijavaFormPage;

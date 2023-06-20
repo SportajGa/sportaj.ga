@@ -8827,10 +8827,10 @@ next-seo@*, next-seo@4.28.1:
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.28.1.tgz#c98ee559c8ab7196c62d0f6903afd7a8cde47a03"
   integrity sha512-WZgwdM+UhpNF3A37zFllzmPhnOVJ9vYeYlc0n3Z/kYfz/QQgy8NEdncNNggS9dU4JD8xriaCcyknhy5OsrFsJw==
 
-next-translate@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-1.0.1.tgz#fd8f5976efb542030563d81d5f605bc019729028"
-  integrity sha512-yCzYSi906IhSzJetVD7pJOKBfceQxYvSA+NUK1YPWhi/VJWFqbp90WAz85uX77eW4nreTeDijQfcAcFG16fjqg==
+next-translate@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-1.6.0.tgz#28329d9970030c573c529a1a6d5c6b4e75146164"
+  integrity sha512-rmRBYOwPHvokN+5uH3O/SZqfRUVORLkgt/097mSaq3+CWcEtXEjkVrfBZpYwZ8W3og4QVd+uphYX//qegnIbRg==
 
 next-transpile-modules@9.0.0:
   version "9.0.0"

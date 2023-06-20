@@ -1885,12 +1885,12 @@
     prettier "^2.4.1"
     typescript "^4.4.4"
 
-"@sapphire/prettier-config@1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@sapphire/prettier-config/-/prettier-config-1.2.4.tgz#835c0d945d1d031cb999b034cf187f4c8972fba1"
-  integrity sha512-mH+2aQATewSlPl2NyRwFULTZIOOq9ilBSQ7uS7xlzVSKlGzCLzbGG8L3G+hDQ18xxN5oJdmkQmAOAunPd6J6gg==
+"@sapphire/prettier-config@1.4.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@sapphire/prettier-config/-/prettier-config-1.4.5.tgz#9b74035193fd69a4eeeb3cc437d5b41978f0a868"
+  integrity sha512-XFyDXwztGmP7CJo1BMjmBZaX4aLyMPceZX4rQU9WsODnkJBTpAEIPjmioFUHlnLsu+yty0r5635Ye3eIcr1x0A==
   dependencies:
-    prettier "^2.4.1"
+    prettier "^2.8.2"
 
 "@sapphire/ts-config@3.1.4":
   version "3.1.4"
@@ -10128,6 +10128,11 @@ prettier@^2.4.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
   integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
+
+prettier@^2.8.2:
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.4.tgz#34dd2595629bfbb79d344ac4a91ff948694463c3"
+  integrity sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==
 
 prettier@~2.2.1:
   version "2.2.1"

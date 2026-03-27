@@ -10542,10 +10542,10 @@ react-helmet-async@^1.0.7:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-if@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/react-if/-/react-if-4.1.1.tgz#48404d7e7f9ce18ee26b5d80baa6e26883bfb128"
-  integrity sha512-frzHswesRqVVJ2XcGRoLyTvlB2yneib4R/FCqTG8AqBQnFdLNhqNODfzEA84EQZ0XwBAVe82Oe567kxaVmwj5w==
+react-if@4.1.6:
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/react-if/-/react-if-4.1.6.tgz#ee3fff723da8807be511c1745e66dc62112a333e"
+  integrity sha512-vEwRUAiNVD+UWE5vRIU+wTPZOSlw81xpR8ffDRxkff+68y63I8Lbv9PIGdookNDAKbyCRqtKxccKoFtgIhEM/w==
 
 react-inspector@^5.1.0:
   version "5.1.1"
